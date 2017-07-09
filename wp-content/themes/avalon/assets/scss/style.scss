@@ -87,6 +87,21 @@ h1 {
         font-size: 16px;
         line-height: 20px;
 
+        a {
+            font-weight: bold;
+            color: $black;
+            @include transitionEffect();
+            &:hover {
+                color: $red;
+            }
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
         .name {
             font-size: 30px;
             line-height: 34px;
@@ -96,10 +111,13 @@ h1 {
             font-size: 16px;
             line-height: 20px;
             margin-top: 20px;
+            div {
+                margin-top: 5px;
+            }
         }
 
         .btn {
-            margin-top: 20px;
+            margin-top: 20px;   
         }
 
         &:not(:first-child) {
@@ -107,4 +125,49 @@ h1 {
         }
 
     }
+}
+
+.property-single {
+
+
+    .photos {
+        margin-top: 40px;
+        .slideshow-slider {
+            img {max-width: 100%;}
+        
+            .slick-arrow {
+                position: absolute;
+                top: 45%;
+                z-index: 1;
+                vertical-align: middle;
+
+                color: transparent;
+
+                width: 50px;
+                height: 50px;
+
+                border: 0;
+                background: transparent;
+
+                &.slick-next {
+                    right: 0;
+                    background-image: url(./images/arrow-right.png);
+                }
+                &.slick-prev {
+                    left: 0;
+                    background-image: url(./images/arrow-left.png);
+                }
+            }
+        }
+
+        .slideshow-nav {
+            margin-top: 1px;
+            .slide {
+                height: 125px;
+                padding: 1px;
+            }
+            img {max-width: 100%;}
+        }
+    }
+
 }

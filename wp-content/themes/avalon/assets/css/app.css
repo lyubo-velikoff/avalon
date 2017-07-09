@@ -6158,6 +6158,29 @@ h1 {
   line-height: 20px;
 }
 
+.properties .property a {
+  font-weight: bold;
+  color: #000000;
+  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+}
+
+.properties .property a:hover {
+  color: #ed1c24;
+}
+
+.properties .property img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 .properties .property .name {
   font-size: 30px;
   line-height: 34px;
@@ -6170,12 +6193,59 @@ h1 {
   margin-top: 20px;
 }
 
+.properties .property .description div {
+  margin-top: 5px;
+}
+
 .properties .property .btn {
   margin-top: 20px;
 }
 
 .properties .property:not(:first-child) {
   margin-top: 20px;
+}
+
+.property-single .photos {
+  margin-top: 40px;
+}
+
+.property-single .photos .slideshow-slider img {
+  max-width: 100%;
+}
+
+.property-single .photos .slideshow-slider .slick-arrow {
+  position: absolute;
+  top: 45%;
+  z-index: 1;
+  vertical-align: middle;
+  color: transparent;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: transparent;
+}
+
+.property-single .photos .slideshow-slider .slick-arrow.slick-next {
+  right: 0;
+  background-image: url("../images/arrow-right.png");
+}
+
+.property-single .photos .slideshow-slider .slick-arrow.slick-prev {
+  left: 0;
+  background-image: url("../images/arrow-left.png");
+}
+
+.property-single .photos .slideshow-nav {
+  margin-top: 1px;
+}
+
+.property-single .photos .slideshow-nav .slide {
+  height: 125px;
+  padding: 1px;
+}
+
+.property-single .photos .slideshow-nav img {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

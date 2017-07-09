@@ -13454,10 +13454,36 @@ avalon.setUpCategoryFilter = function() {
 
 };
 
+
+avalon.setSlideshow = function() {
+    $('.slideshow-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.slideshow-nav',
+        adaptiveHeight: true
+    });
+
+    $('.slideshow-nav').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.slideshow-slider',
+        arrows: false,
+        dots: false,
+        centerMode: false,
+        focusOnSelect: true,
+        vertical: false
+    });
+
+
+};
+
 $(document).ready(function() {
     $('body').addClass('visible');
     
     avalon.setUpCategoryFilter();
+    avalon.setSlideshow();
 });
 
 //# sourceMappingURL=app.js.map

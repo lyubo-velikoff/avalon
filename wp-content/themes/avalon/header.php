@@ -3,7 +3,7 @@
         'title_li' => '',
         'order_by' => 'category_id',
         'hide_empty' => 0,
-        'exclude' => 1
+        'exclude' => array(1, 36)
     );
 ?>
 
@@ -53,14 +53,14 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="#"><img src="<?php path() ?>/assets/images/logo.png" alt="Avalon Logo"></a>
+                            <a href="<?php url('/') ?>"><img src="<?php path() ?>/assets/images/logo.png" alt="Avalon Logo"></a>
                         </div>
                     </div>
                 </div>
                 <div class="header-middle clearfix">
                     <div class="container">
                         <ul class="nav">
-                            <li><a href="#">Начало</a></li>
+                            <li><a href="<?php url('/') ?>">Начало</a></li>
                             <?php wp_list_categories( $categoriesQuery ); ?>
                             <li><a href="#">За нас</a></li>
                             <li><a href="#">Контакти</a></li>
