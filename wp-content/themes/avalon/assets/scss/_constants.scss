@@ -1,0 +1,44 @@
+/* Colours */
+$colours: (
+    'white': #ffffff,
+    'black' : #000000,
+    'light-gray': #C8C8C8,
+    'dark-gray': #31313a,
+    'red': #ed1c24,
+);
+
+$black: map-get($colours, 'black');
+$white: map-get($colours, 'white');
+$lightGray: map-get($colours, 'light-gray');
+$darkGray: map-get($colours, 'dark-gray');
+$red: map-get($colours, 'red');
+
+/* fonts */
+$font1: "Helvetica";
+
+/* transitions */
+$transitionDuration: 0.2s;
+$transitionTiming: linear;
+@mixin transitionEffect() {
+    
+    transition-duration: $transitionDuration;
+    -webkit-transition-duration: $transitionDuration;
+    -moz-transition-duration: $transitionDuration;
+    -o-transition-duration: $transitionDuration;
+    
+    transition-timing-function: $transitionTiming;
+    -webkit-transition-timing-function: $transitionTiming;
+    -moz-transition-timing-function: $transitionTiming;
+    -o-transition-timing-function: $transitionTiming;
+
+}
+
+$sm: 480px;
+$sm: 768px;
+$md: 992px;
+@mixin responsive($size) {
+    @media (min-width: $size) { @content; }
+}
+
+$rightArrow: "\f105";
+$leftArrow: "\f104";

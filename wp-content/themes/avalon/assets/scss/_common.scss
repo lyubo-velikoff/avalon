@@ -1,0 +1,237 @@
+@import '_constants';
+
+@each $colour, $code in $colours {
+    .#{$colour}{color: $code !important;}
+    .#{$colour}-bg{background-color: $code !important;}
+    .fill-#{$colour} {fill: $code !important;}
+    .#{$colour}-hover {
+        &:hover {
+            color: $code !important
+        }
+    }
+}
+
+// @each $size in (11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 25, 27, 29, 31, 38, 39, 41, 43, 45) {
+//     .s#{$size} {
+//         font-size: #{$size}px;
+//         line-height: $size + 3px;
+//     }
+// }
+
+@each $margin in (4, 5, 10, 20,25, 30, 40, 45, 50, 60, 90, 100) {
+    .mt#{$margin} {margin-top: #{$margin}px;}
+    .mr#{$margin} {margin-right: #{$margin}px;}
+    .nmt#{$margin} {margin-top: -#{$margin}px;}
+    .mb#{$margin} {margin-bottom: #{$margin}px;}
+    .ml#{$margin} {margin-left: #{$margin}px;}
+    .nml#{$margin} {margin-left: -#{$margin}px;}
+    .mtb#{$margin} {margin-top: #{$margin}px; margin-bottom: #{$margin}px;}
+
+    
+    @include responsive ($sm)  {
+        .sm-ml#{$margin} {margin-left: #{$margin}px;}
+    }
+
+    @media(min-width: 992px) {
+        .md-mr#{$margin} {margin-right: #{$margin}px;}
+    }
+}
+
+@each $padding in (3, 5, 10, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100) {
+    .p#{$padding} {padding: #{$padding}px;}
+    .ptb#{$padding} {padding: #{$padding}px 0;}
+    .pr#{$padding} {padding-right: #{$padding}px;}
+    .pl#{$padding} {padding-left: #{$padding}px;}
+    .pb#{$padding} {padding-bottom: #{$padding}px;}
+    .pt#{$padding} {padding-top: #{$padding}px;}
+
+    @include responsive($sm) {
+        .sm-pr#{$padding} {padding-right: #{$padding}px;}
+        .sm-pl#{$padding} {padding-left: #{$padding}px;}
+        .sm-pb#{$padding} {padding-bottom: #{$padding}px;}
+    }
+}
+
+@each $weight in (1, 2, 3, 5, 6, 7, 9) {
+    .w#{$weight} { font-weight: $weight * 100; }
+}
+
+@each $width in (300, 400, 420, 500, 690, 740) {
+    .w-#{$width} { width: #{$width}px; }
+    .max-w-#{$width} { max-width: #{$width}px; }
+    .min-w-#{$width} { max-width: #{$width}px; }
+
+    @include responsive($sm) {
+        .sm-max-w-#{$width} { max-width: #{$width}px; }
+    }
+}
+@each $height in (50, 90, 190) {
+    .h-#{$height} { height: #{$height}px; }
+    .max-h-#{$height} { max-height: #{$height}px; }
+    .min-h-#{$height} { min-height: #{$height}px; }
+}
+
+.tal { text-align: left; }
+.tac { text-align: center; }
+.tar { text-align: right; }
+
+.db {display: block;}
+.full-width {width: 100%;}
+.dt{display: table;width: 100%;height: 100%;}
+.dtt{display: table-cell;vertical-align: top;height: 100%;}
+.dtc{display: table-cell;vertical-align: middle;height: 100%;}
+.dtb{display: table-cell;vertical-align: bottom;height: 100%;}
+.mauto {margin: 0 auto;}
+.ttuc { text-transform: uppercase; }
+.relative {position: relative;}
+.left { float: left; }
+.right { float: right; }
+
+.vat {vertical-align: top;}
+.vam {vertical-align: middle;}
+.vab {vertical-align: bottom;}
+.z1 {z-index: 1;}
+.uppercase {text-transform: uppercase;}
+
+.clearfix::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+
+/* Headings */
+
+.heading {
+    font-size: 19px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.copy {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: normal;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    cursor: pointer;
+
+    // min-width: 180px;
+
+    vertical-align: middle;
+    padding: 12px 28px;
+
+    border-width: 1px;
+    border-style: solid; 
+    
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+
+    color: $red;
+    border-color: $red;
+
+    @include transitionEffect();
+
+    &:hover {
+        background-color: $red;
+        color: $white;
+        border-color: $red;
+    }
+
+}
+
+.heading,
+.copy,
+.btn {
+    font-family: $font1;
+}
+
+
+/* Sticky Footer */
+
+.body-content {
+    position: relative;
+    min-height: calc(100vh - 198px);
+}
+
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+    @include responsive($sm) {
+        width: 95%;
+    }
+
+}
+
+
+/* Notifications */
+
+.notification {
+    position: relative;
+    display: none;
+    width: 100%;
+    padding: 20px;
+    color: $white;
+    z-index: 3;
+    text-align: center;;
+    &.success {background-color: green;}
+    &.error {background-color: 'red';}
+}
+
+/* fade in settings in script.js */
+.dark-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgba(0,0,0,0.4);
+}
+
+
+/* Header */
+.header {
+
+    .header-top {
+        margin-top: 20px;
+    }
+
+    .header-middle {
+        background-color: $red;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        a {
+            color: $white;
+            padding: 10px;
+
+            @include transitionEffect();
+            &:hover {
+            
+            }
+
+        }
+    }
+
+}
+
+/* Footer */
+.footer {
+    background-color: $darkGray;
+    color: $white;
+    text-align: center;
+    padding: 60px 0;
+}
+
+
