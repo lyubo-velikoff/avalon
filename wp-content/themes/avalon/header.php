@@ -1,3 +1,13 @@
+<?php
+    $categoriesQuery = array(
+        'title_li' => '',
+        'order_by' => 'category_id',
+        'hide_empty' => 0,
+        'exclude' => 1
+    );
+?>
+
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -47,15 +57,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-middle">
+                <div class="header-middle clearfix">
                     <div class="container">
-                        <div class="nav">
-                            <a href="#">Начало</a>
-                            <a href="#">Продажби</a>
-                            <a href="#">Наеми</a>
-                            <a href="#">За нас</a>
-                            <a href="#">Контакти</a>
-                        </div>
+                        <ul class="nav">
+                            <li><a href="#">Начало</a></li>
+                            <?php wp_list_categories( $categoriesQuery ); ?>
+                            <li><a href="#">За нас</a></li>
+                            <li><a href="#">Контакти</a></li>
+                        </ul>
                     </div>
                 </div>
 

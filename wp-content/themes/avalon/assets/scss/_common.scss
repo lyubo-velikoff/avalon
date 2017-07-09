@@ -202,16 +202,13 @@
 
 /* Header */
 .header {
-
     .header-top {
         margin-top: 20px;
     }
 
     .header-middle {
         background-color: $red;
-        padding: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+        @include addBoxShadow();
         a {
             color: $white;
             padding: 10px;
@@ -222,6 +219,118 @@
             }
 
         }
+
+       
+        ul {
+			float: left;
+            margin: 0;
+            padding: 0;
+            color: $white;
+            z-index: 1;
+            .cat-item-2, .cat-item-4 {
+                &:after {
+                    content: $bottomArrow;
+                    position: absolute;
+                    top: 0;
+                    right: 15px;
+                    line-height: 49px;
+                    color: $white;
+                    font-family: FontAwesome;
+                    font-weight: normal;
+                    font-style: normal;
+                    text-decoration: none;
+                }
+            }
+            > li {
+                &:not(:first-child) {
+                    // padding-left: 40px;
+                    &:before {
+                        content: "";
+                        display: block;
+                        background: $white;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 1px;
+                        height: 100%;
+                    }
+                }
+                width: 25%;
+            }
+
+            li {
+                float: left;
+                position: relative;
+                width: 200px;
+                list-style: none;
+                &:hover {
+
+                    color: $white;
+                    > ul {
+                        visibility: visible;
+			            opacity: 1;
+                    }
+                    li {
+                        background: $red;
+                        margin-left: 0;
+                        &:before {
+                            content: "";
+                            display: none;
+                        }
+                        &:hover {
+                            background: $white;
+                            li {
+                                background: $red;
+                                &:hover {
+                                    background: $white;
+                                    a {
+                                        color: $red;
+                                    }
+                                }
+                                a {color: $white;}
+                            }
+
+                            a {
+                                color: $red;
+                            }
+                        }
+                        a {color: $white;}
+                    }
+                    // a {color: $white;}
+                }
+                a {color: $white;}
+            }
+
+            ul {
+                position: absolute;
+                left: 0;
+                top: 102%;
+                visibility: hidden;
+                opacity: 0;
+                @include addBoxShadow();
+
+                ul {
+                    left: 100%;
+                    top: 0;
+                    @include addBoxShadow();
+
+                }
+            }
+
+            
+
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			padding: 15px;
+			color: $white;
+		}
+
+
+
     }
 
 }

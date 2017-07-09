@@ -33,6 +33,10 @@ $transitionTiming: linear;
 
 }
 
+@mixin addBoxShadow() {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 $sm: 480px;
 $sm: 768px;
 $md: 992px;
@@ -42,3 +46,4 @@ $md: 992px;
 
 $rightArrow: "\f105";
 $leftArrow: "\f104";
+$bottomArrow: "\f0d7";

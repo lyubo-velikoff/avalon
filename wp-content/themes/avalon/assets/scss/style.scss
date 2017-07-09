@@ -24,8 +24,6 @@ h1 {
 
 .content {
     padding: 20px 0;
-    background-color: $lightGray;
-
 }
 
 .categories {
@@ -54,6 +52,24 @@ h1 {
     
     .cat-item {
         margin-top: 10px;
+    }
+
+    .children .children {
+        display: none;
+    }
+
+    span {
+        margin-left: 10px;
+        font-size: 24px;
+        line-height: 28px;
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 20px;
+    }
+
+    .cat-item {
+        position: relative;
     }
 
 }

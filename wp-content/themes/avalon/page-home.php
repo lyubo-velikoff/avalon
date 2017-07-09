@@ -1,20 +1,22 @@
 <?php /* Template Name: Homepage */ ?>
 
+<?php
+    $categoriesQuery = array(
+        'title_li' => '',
+        'order_by' => 'category_id',
+        'hide_empty' => 0,
+        'exclude' => 1
+    );
+?>
+
 <?php get_header(); ?>
 
 <div class="content">
     <div class="container clearfix">
         <div class="categories">
             <?php 
-                $my_cat_menu = array(
-                    'title_li' => '',
-                    'order_by' => 'category_id',
-                    'hide_empty' => 0,
-                    'exclude' => 1
-                );
-                
                 echo '<ul class="my-categories-menu">';
-                wp_list_categories( $my_cat_menu ); 
+                wp_list_categories( $categoriesQuery ); 
                 echo '</ul>';
             ?>
 
