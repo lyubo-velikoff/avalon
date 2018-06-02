@@ -7,6 +7,19 @@
 <?php
 
 	$photos = get_field('photos');
+
+	$field = get_field_object('in_town');
+	$value = $field['value'];
+	$inTown = $field['choices'][ $value ];
+
+	$price = get_field('price');
+
+	$field = get_field_object('currency');
+	$value = $field['value'];
+	$currency = $field['choices'][ $value ];
+	
+	$phone = get_field('phone');
+
 	// echo '<pre>'; print_r($photos); echo '</pre>';
 ?>
 
@@ -16,7 +29,7 @@
 
 		<div class="photos">
 			<div class="row">
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 
 					<div class="slideshow-slider">
 						<?php foreach($photos as $photo) : ?>
@@ -34,7 +47,19 @@
 						<?php endforeach; ?>
 					</div>	
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-5 p20">
+					<div class="heading"><?php the_title(); ?></div>
+					<div class="subheading"><?php echo $inTown ?></div>
+					<div class="price"><?php echo number_format($price) . $currency ?></div>
+					<div class="mt30">
+						<hr/>
+						<div class="subheading">Телефон за връзка</div>
+						<a href="tel:<?php echo str_replace(" ", "", $phone) ?>" class="phone"><?php echo $phone ?></a>
+						<div class="mt20 tac">
+							<a href="mailto:" class="btn">Изпрати имейл</a>
+						</div>
+						<hr/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -42,9 +67,6 @@
 
 	<?php endif; ?>
 
-	<div class="dtt">
-		<div class="featured-image" style="background-image: url(<?php echo $thumb; ?>);"></div>
-	</div>
 	<div class="post-content dtt">
 		<div class="heading"><?php the_title(); ?></div>
 		<div class="copy mt20"><?php the_content(); ?></div>

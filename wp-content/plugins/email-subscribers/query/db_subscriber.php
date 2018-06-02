@@ -35,7 +35,7 @@ class es_cls_dbquery {
 		return $arrRes;
 	}
 
-	// Query to fetch subscribers data on view subscribers screen
+	// Query to fetch subscribers data on Subscribers Dashboard
 	public static function es_view_subscribers_details($id = 0, $search_sts = "", $offset = 0, $limit = 0, $search_group = "") {
 
 		global $wpdb;
@@ -77,70 +77,95 @@ class es_cls_dbquery {
 
 		global $wpdb;
 
-		$result = 0;
-
-		if (!filter_var($data["es_email_mail"], FILTER_VALIDATE_EMAIL)) {
+		// Security
+		if ( array_key_exists( 'es_nonce', $data ) ) {
+			if ( empty ( $data['es_nonce'] ) || ! wp_verify_nonce( $data['es_nonce'], 'es-subscribe' ) ) {
+				return "invalid";
+			}
+		} elseif ( array_key_exists( 'es_af_nonce', $data ) ) {
+			if ( empty ( $data['es_af_nonce'] ) || ! wp_verify_nonce( $data['es_af_nonce'], 'es_af_form_subscribers' ) ) {
+				return "invalid";
+			}
+		} else {
 			return "invalid";
 		}
 
-		$es_subscriber_name = sanitize_text_field(esc_attr($data["es_email_name"]));
-		$es_subscriber_status = sanitize_text_field(esc_attr($data["es_email_status"]));
-		$es_subscriber_group = sanitize_text_field(esc_attr($data["es_email_group"]));
-		$es_subscriber_email = sanitize_email(esc_attr($data["es_email_mail"]));
+		if ( !filter_var( $data["es_email_mail"], FILTER_VALIDATE_EMAIL ) ) {
+			return "invalid";
+		}
 
-		$CurrentDate = date('Y-m-d G:i:s');
-		if($action == "insert") {
-			$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$es_subscriber_email."' and es_email_group='".trim($es_subscriber_group)."'";
-			$result = $wpdb->get_var($sSql);
-			if ( $result > 0) {
-				return "ext";
-			} else {
-				$guid = es_cls_common::es_generate_guid(60);
-				$sql = $wpdb->prepare("INSERT INTO `".$wpdb->prefix."es_emaillist`
-						(`es_email_name`,`es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`)
-						VALUES(%s, %s, %s, %s, %d, %s, %s)", array(trim($es_subscriber_name), trim($es_subscriber_email),
-						trim($es_subscriber_status), $CurrentDate, 0, trim($es_subscriber_group), $guid));
-				$wpdb->query($sql);
+		$data = apply_filters('es_validate_subscribers_email', $data);
 
-				/* Added from ES v3.1.5 - If subscribing via Rainmaker
-				 * if double opt-in, send confirmation email to subscriber
-				 * if single opt-in, send welcome email to subscriber
-				 */
-				$active_plugins = (array) get_option('active_plugins', array());
-				if (is_multisite()) {
-					$active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
-				}
+		if ( $data["es_email_mail"] === 'invalid' ) {
+			return "invalid";
+		}
 
-				if (( in_array('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) || array_key_exists('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) )) {			// To Do- Handle via actions
+		$result = 0;
+		$data["es_email_name"] = sanitize_text_field(esc_attr($data["es_email_name"]));
+		$data["es_email_status"] = sanitize_text_field(esc_attr($data["es_email_status"]));
+		$data["es_email_group"] = sanitize_text_field(esc_attr($data["es_email_group"]));
+		$data["es_email_mail"] = sanitize_email(esc_attr($data["es_email_mail"]));
 
-					$es_c_optinoption = get_option( 'ig_es_optintype' );
-					$subscribers = array();
-					$subscribers = self::es_view_subscriber_one($es_subscriber_email,$es_subscriber_group);
+		// santize_email sometimes discards invalid emails. Hence returning 'invalid' for the same.
+		if ( empty( $data["es_email_mail"] ) ) {
+			return "invalid";
+		} else {
+			$CurrentDate = date('Y-m-d G:i:s');
+			if( $action == "insert" ) {
+				$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$data["es_email_mail"]."' and es_email_group='".trim($data["es_email_group"])."'";
+				$result = $wpdb->get_var($sSql);
+				if ( $result > 0 ) {
+					return "ext";
+				} else {
+					$data['guid'] = es_cls_common::es_generate_guid(60);
+					$sql = $wpdb->prepare("INSERT INTO `".$wpdb->prefix."es_emaillist`
+							(`es_email_name`,`es_email_mail`, `es_email_status`, `es_email_created`, `es_email_viewcount`, `es_email_group`, `es_email_guid`)
+							VALUES(%s, %s, %s, %s, %d, %s, %s)", array(trim($data["es_email_name"]), trim($data["es_email_mail"]),
+							trim($data["es_email_status"]), $CurrentDate, 0, trim($data["es_email_group"]), $data['guid']));
+					$sql = apply_filters( 'es_insert_subscribers_sql', $sql, $data );
+					$wpdb->query($sql);
 
-					if( did_action( 'rainmaker_post_lead' ) >= 1 ) {
-						if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Double Opt In') ) {
-							es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, "optin", 0);
-						} else if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Single Opt In' ) ) {
-							es_cls_sendmail::es_sendmail("welcome", $template = 0, $subscribers, "welcome", 0);
+					/* Added from ES v3.1.5 - If subscribing via Rainmaker
+					 * if double opt-in, send confirmation email to subscriber
+					 * if single opt-in, send welcome email to subscriber
+					 */
+					$active_plugins = (array) get_option('active_plugins', array());
+					if (is_multisite()) {
+						$active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
+					}
+
+					if (( in_array('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) || array_key_exists('icegram-rainmaker/icegram-rainmaker.php', $active_plugins) )) {			// To Do- Handle via actions
+
+						$es_c_optinoption = get_option( 'ig_es_optintype' );
+						$subscribers = array();
+						$subscribers = self::es_view_subscriber_one($data["es_email_mail"],$data["es_email_group"]);
+
+						if( did_action( 'rainmaker_post_lead' ) >= 1 ) {
+							if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Double Opt In') ) {
+								es_cls_sendmail::es_sendmail("optin", $template = 0, $subscribers, "optin", 0);
+							} else if ( (!empty($es_c_optinoption)) && ($es_c_optinoption == 'Single Opt In' ) ) {
+								es_cls_sendmail::es_sendmail("welcome", $template = 0, $subscribers, "welcome", 0);
+							}
 						}
 					}
+					return "sus";
 				}
-				return "sus";
-			}
-		} elseif($action == "update") {
-			$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$es_subscriber_email."'";
-			$sSql = $sSql . " and es_email_group='".trim($es_subscriber_group)."' and es_email_id != ".$data["es_email_id"];
-			$result = $wpdb->get_var($sSql);
-			if ( $result > 0) {
-				return "ext";
-			} else {
-				$sSql = $wpdb->prepare("UPDATE `".$wpdb->prefix."es_emaillist` SET `es_email_name` = %s, `es_email_mail` = %s,
-						`es_email_status` = %s, `es_email_group` = %s WHERE es_email_id = %d LIMIT 1", array($es_subscriber_name, $es_subscriber_email,
-						$es_subscriber_status, $es_subscriber_group, $data["es_email_id"]));
-				$wpdb->query($sSql);
-				return "sus";
+			} elseif( $action == "update" ) {
+				$sSql = "SELECT * FROM `".$wpdb->prefix."es_emaillist` where es_email_mail='".$data["es_email_mail"]."'";
+				$sSql = $sSql . " and es_email_group='".trim($data["es_email_group"])."' and es_email_id != ".$data["es_email_id"];
+				$result = $wpdb->get_var($sSql);
+				if ( $result > 0 ) {
+					return "ext";
+				} else {
+					$sSql = $wpdb->prepare("UPDATE `".$wpdb->prefix."es_emaillist` SET `es_email_name` = %s, `es_email_mail` = %s,
+							`es_email_status` = %s, `es_email_group` = %s WHERE es_email_id = %d LIMIT 1", array($data["es_email_name"], $data["es_email_mail"],
+							$data["es_email_status"], $data["es_email_group"], $data["es_email_id"]));
+					$wpdb->query($sSql);
+					return "sus";
+				}
 			}
 		}
+
 	}
 
 	public static function es_view_subscriber_bulk($idlist = "") {
@@ -182,6 +207,7 @@ class es_cls_dbquery {
 		return $arrRes;
 	}
 
+	// Function to Bulk Update Subscribers Status
 	public static function es_view_subscriber_upd_status($status = "", $idlist = "") {
 
 		global $wpdb;
@@ -193,6 +219,7 @@ class es_cls_dbquery {
 		return "sus";
 	}
 
+	// Function to Bulk Update Subscribers Group
 	public static function es_view_subscriber_upd_group($group = "", $idlist = "") {
 
 		global $wpdb;
@@ -265,6 +292,11 @@ class es_cls_dbquery {
 				$form['es_email_group'] = sanitize_text_field(esc_attr($data["es_email_group"]));
 				$form['es_email_status'] = sanitize_text_field(esc_attr($data["es_email_status"]));
 				$form['es_email_id'] = $arrRes[0]["es_email_id"];
+				if ( array_key_exists( 'es_nonce', $data ) ) {
+					$form['es_nonce'] = $data['es_nonce'];
+				} elseif ( array_key_exists( 'es_af_nonce', $data ) ) {
+					$form['es_af_nonce'] = $data['es_af_nonce'];
+				}
 				$action = es_cls_dbquery::es_view_subscriber_ins($form, $action = "update");
 				return $action;
 			}
@@ -352,31 +384,39 @@ class es_cls_dbquery {
 		global $wpdb;
 
 		$args = array(
-			'post_type' => 'post', 
+			'post_type' 	=> 'post', 
 			'post_status'   => 'publish',
-			'fields'			=> 'ids',
+			'fields'		=> 'ids',
 			'date_query'    => array(
-				'after'   => '- 30 days'
-			)
+									'after'   => '- 30 days'
+							)
 		);
 		$query = new WP_Query( $args );
+
 		$posts = $query->posts;
 		$avg_post = (round((count($posts)/4)) > 1 ) ? round((count($posts)/4)) : 1 ;
-		
+
 		$sSql = "SELECT  
 					SUM((CASE WHEN 	es_sent_source = 'Post Notification' THEN 1 ELSE 0 END)) AS post_notification,
 					SUM((CASE WHEN 	es_sent_source = 'Newsletter' THEN 1 ELSE 0 END)) AS newsletter,
 					SUM((CASE WHEN 	es_sent_type = 'Cron' THEN 1 ELSE 0 END)) AS cron,
 					SUM((CASE WHEN 	es_sent_type = 'Immediately' THEN 1 ELSE 0 END)) AS immediately
 				FROM ".$wpdb->prefix . "es_sentdetails";
-		$es_survey_res = $wpdb->get_results( $sSql, ARRAY_A );
+		$es_query_res = $wpdb->get_results( $sSql, ARRAY_A );
 
 		$total_subscribers = es_cls_dbquery::es_view_subscriber_count(0);
 		$active_subscribers = es_cls_dbquery::es_active_subscribers();
-		$es_survey_res = $es_survey_res[0];
+
+		$opt_in_type = get_option( 'ig_es_optintype', 'Double Opt In' );
+
+		$es_survey_res['post_notification'] = (!empty($es_query_res[0]['post_notification'])) ? $es_query_res[0]['post_notification'] : 0;
+		$es_survey_res['newsletter'] = (!empty($es_query_res[0]['newsletter'])) ? $es_query_res[0]['newsletter'] : 0;
+		$es_survey_res['cron'] = (!empty($es_query_res[0]['cron'])) ? $es_query_res[0]['cron'] : 0;
+		$es_survey_res['immediately'] = (!empty($es_query_res[0]['immediately'])) ? $es_query_res[0]['immediately'] : 0;
 		$es_survey_res['es_active_subscribers']	= $active_subscribers;	
 		$es_survey_res['es_total_subscribers'] = $total_subscribers;
-		$es_survey_res['es_avg_post_cnt'] = $avg_post;				
+		$es_survey_res['es_avg_post_cnt'] = $avg_post;
+		$es_survey_res['es_opt_in_type'] = $opt_in_type;		
 
 		return $es_survey_res;
 	}

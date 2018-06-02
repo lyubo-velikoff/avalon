@@ -129,7 +129,6 @@ h1 {
 
 .property-single {
 
-
     .photos {
         margin-top: 40px;
         .slideshow-slider {
@@ -170,4 +169,23 @@ h1 {
         }
     }
 
+    .subheading {
+        margin-top: 5px;
+    }
+    .price {
+        margin-top: 10px;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .phone {
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 600;
+        color: $red;
+        text-decoration: underline;
+    }
+    .btn {
+        width: 100%;
+    }
 }

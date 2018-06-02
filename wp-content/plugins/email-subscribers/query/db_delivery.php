@@ -13,7 +13,7 @@ class es_cls_delivery {
 		$arrRes = array();
 
 		$sSql = "SELECT * FROM `".$wpdb->prefix."es_deliverreport` where 1=1";
-		if($sentguid <> "") {
+		if($sentguid != "") {
 			$sSql = $sSql . " and es_deliver_sentguid='".$sentguid."'";
 			$sSql = $sSql . " order by es_deliver_id desc limit $offset, $limit";
 		}
@@ -31,6 +31,22 @@ class es_cls_delivery {
 
 		if($sentguid != "") {
 			$sSql = $wpdb->prepare("SELECT COUNT(*) AS `count` FROM `".$wpdb->prefix."es_deliverreport` WHERE `es_deliver_sentguid` = %s", array($sentguid));
+		}
+		$result = $wpdb->get_var($sSql);
+
+		return $result;
+
+	}
+
+	// Query to get total viewed emails per report
+	public static function es_delivery_viewed_count($sentguid = "") {
+
+		global $wpdb;
+
+		$result = '0';
+
+		if($sentguid != "") {
+			$sSql = $wpdb->prepare("SELECT COUNT(*) AS `count` FROM `".$wpdb->prefix."es_deliverreport` WHERE `es_deliver_status` = 'Viewed' AND `es_deliver_sentguid` = %s", array($sentguid));
 		}
 		$result = $wpdb->get_var($sSql);
 

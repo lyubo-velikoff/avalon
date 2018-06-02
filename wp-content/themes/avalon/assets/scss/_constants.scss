@@ -14,7 +14,7 @@ $darkGray: map-get($colours, 'dark-gray');
 $red: map-get($colours, 'red');
 
 /* fonts */
-$font1: "Helvetica";
+$font1: sans-serif, Helvetica;
 
 /* transitions */
 $transitionDuration: 0.2s;
@@ -38,12 +38,13 @@ $transitionTiming: linear;
 }
 
 $sm: 480px;
-$sm: 768px;
-$md: 992px;
+$md: 768px;
+$lg: 992px;
 @mixin responsive($size) {
     @media (min-width: $size) { @content; }
 }
 
+$carretRight: "\f0da";
 $rightArrow: "\f105";
 $leftArrow: "\f104";
 $bottomArrow: "\f0d7";

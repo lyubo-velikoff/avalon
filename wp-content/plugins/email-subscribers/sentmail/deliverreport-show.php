@@ -28,9 +28,6 @@ if ($sentguid == '') {
 		margin-left:2px;
 		margin-right:2px;
 	}
-	.current {
-		background: none repeat scroll 0 0 #BBBBBB;
-	}
 </style>
 
 <?php
@@ -53,6 +50,9 @@ if ($sentguid == '') {
 		'show_all' => False,
 		'current' => $pagenum
 	) );
+
+	$total_email_sent = es_cls_delivery::es_delivery_count($sentguid);
+	$email_viewed_count = es_cls_delivery::es_delivery_viewed_count($sentguid);
 ?>
 
 <div class="wrap">
@@ -61,6 +61,7 @@ if ($sentguid == '') {
 		<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
 	</h2>
 	<div class="tablenav">
+		<div class="alignleft" style="padding-bottom:10px;"><?php echo 'Viewed ' . $email_viewed_count . '/' .$total_email_sent; ?></div>
 		<div class="alignright" style="padding-bottom:10px;"><?php echo $page_links; ?></div>
 	</div>
 	<div class="tool-box">
@@ -138,6 +139,4 @@ if ($sentguid == '') {
 			</div>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

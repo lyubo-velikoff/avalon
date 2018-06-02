@@ -8,10 +8,11 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <title>Avalon 2017</title>
+    <title>Avalon <?php echo date('Y') ?></title>
 
     <!-- Meta -->
     <meta charset="utf-8">

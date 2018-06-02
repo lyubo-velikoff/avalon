@@ -1,5 +1,9 @@
 var avalon = avalon || {};
 
+avalon.setUpNav = function() {
+    $('.nav li.cat-item:has(ul.children)').addClass('right-arrow');
+};
+
 avalon.setUpCategoryFilter = function() {
     $('.categories ul ul ul').parent('.cat-item').append('<span class="toggle-cat"><i class="fa fa-caret-down" aria-hidden="true"></i>');
 
@@ -39,7 +43,8 @@ avalon.setSlideshow = function() {
 
 $(document).ready(function() {
     $('body').addClass('visible');
-    
+
+    avalon.setUpNav();
     avalon.setUpCategoryFilter();
     avalon.setSlideshow();
 });

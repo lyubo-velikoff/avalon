@@ -19,14 +19,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'es_email_name' => '',
 		'es_email_status' => '',
 		'es_email_group' => '',
-		'es_email_mail' => ''
+		'es_email_mail' => '',
+		'es_nonce' => ''
 	);
 
 	// Form submitted, check the data
-	if (isset($_POST['es_form_submit']) && $_POST['es_form_submit'] == 'yes') {
+	if ( isset($_POST['es_form_submit']) && $_POST['es_form_submit'] == 'yes' && !empty( $_POST['es-subscribe'] ) ) {
 
 		// Just security thingy that wordpress offers us
-		check_admin_referer('es_form_add');
+		if ( $form['es_nonce'] == '' ) {
+			$form['es_nonce'] = $_POST['es-subscribe'];
+		}
 
 		$form['es_email_status'] = isset($_POST['es_email_status']) ? $_POST['es_email_status'] : '';
 		$form['es_email_name'] = isset($_POST['es_email_name']) ? $_POST['es_email_name'] : '';
@@ -38,19 +41,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 
 		$es_email_group = isset($_POST['es_email_group']) ? $_POST['es_email_group'] : '';
-		if ($es_email_group == '') {
+		if ( $es_email_group == '' ) {
 			$es_email_group = isset($_POST['es_email_group_txt']) ? $_POST['es_email_group_txt'] : '';
 			$form['es_email_group'] = $es_email_group;
 		} else {
 			$form['es_email_group'] = $es_email_group;
 		}
 
-		if ($form['es_email_group'] == '') {
+		if ( $form['es_email_group'] == '' ) {
 			$es_errors[] = __( 'Please select or create your group for this email.', ES_TDOMAIN );
 			$es_error_found = TRUE;
 		}
 
-		if($form['es_email_group'] != "") {
+		if( $form['es_email_group'] != '' ) {
 			$special_letters = es_cls_common::es_special_letters();
 			if (preg_match($special_letters, $form['es_email_group'])) {
 				$es_errors[] = __( 'Error: Special characters ([\'^$%&*()}{@#~?><>,|=_+\"]) are not allowed in the group name.', ES_TDOMAIN );
@@ -77,7 +80,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'es_email_name' => '',
 				'es_email_status' => '',
 				'es_email_group' => '',
-				'es_email_mail' => ''
+				'es_email_mail' => '',
+				'es_nonce' => ''
 			);
 		}
 	}
@@ -182,9 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p style="padding-top:5px;">
 				<input type="submit" class="button-primary" value="<?php echo __( 'Add Subscriber', ES_TDOMAIN ); ?>" />
 			</p>
-			<?php wp_nonce_field('es_form_add'); ?>
+			<?php wp_nonce_field( 'es-subscribe', 'es-subscribe' ); ?>
 		</form>
 	</div>
-	<div style="height:10px;"></div>
-	<p class="description"><?php echo ES_OFFICIAL; ?></p>
 </div>

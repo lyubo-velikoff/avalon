@@ -103,9 +103,9 @@
 /* Headings */
 
 .heading {
-    font-size: 19px;
-    line-height: 30px;
-    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 600;
 }
 
 .copy {
@@ -124,25 +124,21 @@
     vertical-align: middle;
     padding: 12px 28px;
 
-    border-width: 1px;
-    border-style: solid; 
-    
     font-size: 14px;
     line-height: 14px;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-weight: 600;
     text-decoration: none;
     text-align: center;
 
-    color: $red;
-    border-color: $red;
+    color: $white;
+    background-color: $red;
+
+    border-radius: 20px;
 
     @include transitionEffect();
 
     &:hover {
-        background-color: $red;
-        color: $white;
-        border-color: $red;
+        opacity: 0.7;
     }
 
 }
@@ -165,12 +161,14 @@
 /* Container */
 .container {
     width: 90%;
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto;
     @include responsive($sm) {
         width: 95%;
     }
-
+    @include responsive($lg) {
+        width: 95%;
+    }
 }
 
 
@@ -220,16 +218,13 @@
 
         }
 
-       
-        ul {
-			float: left;
-            margin: 0;
-            padding: 0;
-            color: $white;
-            z-index: 1;
-            .cat-item-2, .cat-item-4 {
+
+
+
+        .nav {
+            .right-arrow {
                 &:after {
-                    content: $bottomArrow;
+                    content: $carretRight;
                     position: absolute;
                     top: 0;
                     right: 15px;
@@ -242,6 +237,32 @@
                 }
             }
             > li {
+                &:nth-child(2), &:nth-child(3) {
+                    &:after {
+                        content: $bottomArrow;
+                        position: absolute;
+                        top: 0;
+                        right: 15px;
+                        line-height: 49px;
+                        color: $white;
+                        font-family: FontAwesome;
+                        font-weight: normal;
+                        font-style: normal;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+       
+        ul {
+			float: left;
+            margin: 0;
+            padding: 0;
+            color: $white;
+            z-index: 1;
+
+            > li {
+                width: 25%;
                 &:not(:first-child) {
                     // padding-left: 40px;
                     &:before {
@@ -256,7 +277,7 @@
                         height: 100%;
                     }
                 }
-                width: 25%;
+
             }
 
             li {

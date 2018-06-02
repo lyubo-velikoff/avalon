@@ -22,14 +22,15 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			$tabs = array(
 				'admin'				  => __( 'Admin', ES_TDOMAIN ),
 				'signup-confirmation' => __( 'Signup Confirmation', ES_TDOMAIN ),
-				'roles' 			  => __( 'User Roles', ES_TDOMAIN ),
 				'cron'	 			  => __( 'Cron', ES_TDOMAIN ),
+				'roles' 			  => __( 'User Roles', ES_TDOMAIN ),
 			);
 
 			return apply_filters( 'es_settings_tabs', $tabs );
 		}
 
-		public function es_display_nav_tabs() { ?>
+		public function es_display_nav_tabs() {
+			?>
 			<style>
 				.form-table th {
 					width: 450px;
@@ -37,40 +38,41 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</style>
 
 			<div class="wrap">
-			 	<h2>
+				<h2>
 					<?php echo __( 'Settings', ES_TDOMAIN ); ?>
-		            <a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
+					<a class="add-new-h2" target="_blank" href="<?php echo ES_FAV; ?>"><?php echo __( 'Help', ES_TDOMAIN ); ?></a>
 				</h2>
 				<div id="icon-options-general" class="icon32"><br /></div>
-			   	<h2 id="es-tabs" class="nav-tab-wrapper">
-			   	<?php foreach ($this->nav_tabs as $tab => $name ) { ?>
+				<h2 id="es-tabs" class="nav-tab-wrapper">
+				<?php foreach ( $this->nav_tabs as $tab => $name ) { ?>
 					<a class="nav-tab" id=<?php echo $tab; ?> href='#'><?php echo $name; ?></a>
 				<?php } ?>
-				</h2> <?php
+				</h2>
+				<?php
 		}
 
-		public function es_display_settings() { ?>
-				<form name="es_form" id="es_form" method="post" action="#">
-					<table class="es-settings form-table">
-						<tbody>
-							<?php $this->display_admin_settings(); ?>
-							<?php $this->display_signup_confirmation_settings(); ?>
-							<?php $this->display_roles_setting(); ?>
-							<?php $this->display_cron_settings(); ?>
-						</tbody>
-					</table>
-					<input type="hidden" name="es_form_submit" value="yes"/>
-					<p style="padding-top:10px;">
-						<input type="submit" name="publish" id="es-save-settings" class="button-primary" value="<?php echo __( 'Save Settings', ES_TDOMAIN ); ?>" />
-					</p>
-					<?php wp_nonce_field('es_form_edit'); ?>
-				</form>
-				<div style="height:10px;"></div>
-				<p class="description"><?php echo ES_OFFICIAL; ?></p>
-		    </div> <?php
+		public function es_display_settings() {
+			?>
+			<form name="es_form" id="es_form" method="post" action="#">
+				<table class="es-settings form-table">
+					<tbody>
+						<?php $this->display_admin_settings(); ?>
+						<?php $this->display_signup_confirmation_settings(); ?>
+						<?php $this->display_roles_setting(); ?>
+						<?php $this->display_cron_settings(); ?>
+					</tbody>
+				</table>
+				<input type="hidden" name="es_form_submit" value="yes"/>
+				<p style="padding-top:10px;">
+					<input type="submit" name="publish" id="es-save-settings" class="button-primary" value="<?php echo __( 'Save Settings', ES_TDOMAIN ); ?>" />
+				</p>
+				<?php wp_nonce_field('es_form_edit'); ?>
+			</form>
+			<?php
 		}
 
-		public function display_admin_settings() { ?>
+		public function display_admin_settings() {
+			?>
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Sender of Notifications', ES_TDOMAIN ); ?>
@@ -84,8 +86,8 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Mail Type', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Option 1 & 2 is to send mails with default Wordpress method wp_mail(). Option 3 & 4 is to send mails with PHP method mail().', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Email Type', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Option 1 & 2 is to send emails with default Wordpress method wp_mail(). Option 3 & 4 is to send emails with PHP method mail().', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td>
 					<select name="es_c_mailtype" id="es_c_mailtype">
@@ -99,8 +101,8 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<!-------------------------------------------------------------------------------->
 			<tr class="es-admin active-settings">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Opt-In Option', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Double Opt In means subscribers need to confirm their email address by an activation link sent them on a activation email message.<br />Single Opt In means subscribers do not need to confirm their email address.', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Opt-In Type', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Double Opt-In : In this type, the subscriber is sent an activation link as soon as they subscribe to your list. They have to confirm their subscription by clicking on the activation link.<br />Single Opt-In : In this type, the subscriber is not asked to confirm their email address. They are subscribed directly in the list.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td>
 					<select name="es_c_optinoption" id="es_c_optinoption">
@@ -112,7 +114,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Image Size', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Select image size for ###POSTIMAGE### to be shown in the Post Notification Emails.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Select image size for {{POSTIMAGE}} to be shown in the Post Notification Emails.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td>
 					<select name="es_c_post_image_size" id="es_c_post_image_size">
@@ -131,7 +133,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Notify admin when a new subscriber signs up', ES_TDOMAIN ); ?>
+					<label for="elp"><?php echo __( 'Notify Admin when a new subscriber signs up', ES_TDOMAIN ); ?>
 						<p class="description"><?php echo __( 'To send admin email notifications for the new subscriber. This option must be set to YES.', ES_TDOMAIN ); ?></p>
 					</label>
 				</th>
@@ -144,15 +146,15 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Admin Email Subject when a new subscriber signs up', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the subject for the admin email which will be sent whenever a new email is added and confirmed.', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Admin Email Subject on new subscriber sign up', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Subject for the admin email whenever a new subscriber signs up and is confirmed.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_adminmailsubject" type="text" id="es_c_adminmailsubject" value="<?php echo esc_html(stripslashes($this->form['ig_es_admin_new_sub_subject'])); ?>" size="60" maxlength="225" /></td>
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Admin Email Content when a new subscriber signs up', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the email content for the admin email which will be sent whenever a new email is added and confirmed. (Keyword: ###NAME###, ###EMAIL###, ###GROUP###)', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Admin Email Content on new subscriber signs up', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Content for the admin email whenever a new subscriber signs up and is confirmed.<br />Available Keywords: {{NAME}}, {{EMAIL}}, {{GROUP}}', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_adminmailcontant" rows="10" cols="58" name="es_c_adminmailcontant"><?php echo esc_html(stripslashes($this->form['ig_es_admin_new_sub_content'])); ?></textarea></td>
 			</tr>
@@ -160,44 +162,46 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Sent Report Subject', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the subject for the sent email report. It will be emailed to Admin.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Subject for the email report which will be sent to admin.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_sentreport_subject" type="text" id="es_c_sentreport_subject" value="<?php echo esc_html(stripslashes($this->form['ig_es_sentreport_subject'])); ?>" size="60" maxlength="225" /></td>
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Sent Report Content', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the content for the sent email report. It will be emailed to Admin. (Keyword: ###COUNT###, ###UNIQUE###, ###STARTTIME###, ###ENDTIME###)', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Content for the email report which will be sent to admin.<br />Available Keywords: {{COUNT}}, {{UNIQUE}}, {{STARTTIME}}, {{ENDTIME}}', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_sentreport" rows="8" cols="58" name="es_c_sentreport"><?php echo esc_html(stripslashes($this->form['ig_es_sentreport'])); ?></textarea></td>
-			</tr> <?php
+			</tr>
+			<?php
 		}
 
-		public function display_signup_confirmation_settings() { ?>
+		public function display_signup_confirmation_settings() {
+			?>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Double Opt In Email Subject (Confirmation Email)', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the subject for the confirmation email to be sent for Double Opt In whenever a user signs up.', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Double Opt-In Email Subject (Confirmation Email)', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Subject for the confirmation email to be sent for Double Opt-In whenever a subscriber signs up.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_optinsubject" type="text" id="es_c_optinsubject" value="<?php echo esc_html(stripslashes($this->form['ig_es_confirmsubject'])); ?>" size="60" maxlength="225" /></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __('Double Opt In Email Content (Confirmation Email)', ES_TDOMAIN); ?>
-					<p class="description"><?php echo __( 'Enter the content for the confirmation email to be sent for Double Opt In whenever a user signs up. (Keyword: ###NAME###, ###LINK###)', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __('Double Opt-In Email Content (Confirmation Email)', ES_TDOMAIN); ?>
+					<p class="description"><?php echo __( 'Content for the confirmation email to be sent for Double Opt-In whenever a subscriber signs up.<br />Available Keywords: {{NAME}}, {{LINK}}', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_optincontent" rows="10" cols="58" name="es_c_optincontent"><?php echo esc_html(stripslashes($this->form['ig_es_confirmcontent'])); ?></textarea></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Double Opt In Confirmation Link', ES_TDOMAIN ); ?><p class="description">
+					<label for="elp"><?php echo __( 'Double Opt-In Confirmation Link', ES_TDOMAIN ); ?><p class="description">
 					<?php echo __( 'It is a readonly field and you are advised not to modify it.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_optinlink" type="text" id="es_c_optinlink" value="<?php echo esc_html(stripslashes($this->form['ig_es_optinlink'])); ?>" size="60" maxlength="225" readonly /></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Text to display after an email address is successfully subscribed from Double Opt In (confirmation) Email', ES_TDOMAIN ); ?>
+					<label for="elp"><?php echo __( 'Text to display after an email address is successfully subscribed from Double Opt-In (Confirmation) Email', ES_TDOMAIN ); ?>
 					<p class="description"><?php echo __( 'This text will be displayed once user clicks on email confirmation link from the Double Opt In (confirmation) Email.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_subhtml" rows="4" cols="58" name="es_c_subhtml"><?php echo esc_html(stripslashes($this->form['ig_es_successmsg'])); ?></textarea></td>
@@ -205,7 +209,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<!-------------------------------------------------------------------------------->
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Subscriber Welcome Email', ES_TDOMAIN ); ?>
+					<label for="elp"><?php echo __( 'Send Welcome Email to New Subscribers after Sign Up?', ES_TDOMAIN ); ?>
 					<p class="description"><?php echo __( 'To send welcome email to subscriber after successful signup. This option must be set to YES.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td>
@@ -217,15 +221,15 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Subscriber Welcome Email Subject', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the subject for the subscriber welcome email. This will be sent whenever a user\'s email is either confirmed (if Double Opt In) / subscribed (if Single Opt In) successfully.', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Subject for Welcome Email', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Subject for the subscriber welcome email. This will be sent whenever a user\'s email is either confirmed (if Double Opt-In) / subscribed (if Single Opt-In) successfully.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_usermailsubject" type="text" id="es_c_usermailsubject" value="<?php echo esc_html(stripslashes($this->form['ig_es_welcomesubject'])); ?>" size="60" maxlength="225" /></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Subscriber Welcome Email Content', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the content for the subscriber welcome email whenever a user\'s email is either confirmed (if Double Opt In) / subscribed (if Single Opt In) successfully. (Keyword: ###NAME###, ###GROUP###, ###LINK###)', ES_TDOMAIN ); ?></p>
+					<label for="elp"><?php echo __( 'Email Content for Welcome Email', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Content for the subscriber welcome email whenever a user\'s email is either confirmed (if Double Opt In) / subscribed (if Single Opt In) successfully.<br />Available Keywords: {{NAME}}, {{GROUP}}, {{LINK}}', ES_TDOMAIN ); ?></p>
 				</label>
 				</th>
 				<td><textarea size="100" id="es_c_usermailcontant" rows="10" cols="58" name="es_c_usermailcontant"><?php echo esc_html(stripslashes($this->form['ig_es_welcomecontent'])); ?></textarea></td>
@@ -234,42 +238,44 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Unsubscribe Link', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'The unsubscribe link gets added automatically to all emails that are sent from this plugin. It is a readonly field and you are advised not to modify it.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'This unsubscribe link is automatically added to all the emails that are sent from this plugin. It is a readonly field and you are advised not to modify it.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_unsublink" type="text" id="es_c_unsublink" value="<?php echo esc_html(stripslashes($this->form['ig_es_unsublink'])); ?>" size="60" maxlength="225" readonly /></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Unsubscribe Text in Email', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Enter the text for the unsubscribe link. This text is added with unsubscribe link in the emails. (Keyword: ###LINK###)', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'The text for the unsubscribe link. This text is automatically added with unsubscribe link in the emails.<br />Available Keyword: {{LINK}}', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_unsubtext" rows="4" cols="58" name="es_c_unsubtext"><?php echo esc_html(stripslashes($this->form['ig_es_unsubcontent'])); ?></textarea></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Text to display after an email address is unsubscribed', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'This text will be displayed once user clicks on unsubscribe link.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'This text will be displayed once user clicks on unsubscribe link from the email.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_unsubhtml" rows="4" cols="58" name="es_c_unsubhtml"><?php echo esc_html(stripslashes($this->form['ig_es_unsubtext'])); ?></textarea></td>
 			</tr>
 			<!-------------------------------------------------------------------------------->
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
-					<label for="elp"><?php echo __( 'Error in the Confirmation Link', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Default message to display if there is any issue while clicking on confirmation link from the Double Opt In (confirmation) Emails.', ES_TDOMAIN ); ?></p></label>
+					<label for="elp"><?php echo __( 'Error in the Subscribe / Confirmation Link', ES_TDOMAIN ); ?>
+					<p class="description"><?php echo __( 'Default message to display if there is any issue while clicking on subscribe / confirmation link from the Double Opt-In (Confirmation) emails.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_message1" rows="4" cols="58" name="es_c_message1"><?php echo esc_html(stripslashes($this->form['ig_es_suberror'])); ?></textarea></td>
 			</tr>
 			<tr class="es-signup-confirmation hidden">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Error in the Unsubscribe Link', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Default message to display if there is any issue while clicking on unsubscribe link from the Emails.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Default message to display if there is any issue while clicking on unsubscribe link from the emails.', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_message2" rows="4" cols="58" name="es_c_message2"><?php echo esc_html(stripslashes($this->form['ig_es_unsuberror'])); ?></textarea></td>
-			</tr> <?php
+			</tr>
+			<?php
 		}
 
-		public function display_roles_setting() { ?>
+		public function display_roles_setting() {
+			?>
 			<tr class="es-roles hidden">
 				<td colspan=2>
 					<p class="description">
@@ -291,7 +297,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-roles hidden">
 				<th scope="row">
-					<label for="tag-image"><?php echo __( 'Compose Menu', ES_TDOMAIN ); ?></label>
+					<label for="tag-image"><?php echo __( 'Templates Menu', ES_TDOMAIN ); ?></label>
 				</th>
 				<td>
 					<select name="es_roles_mail" id="es_roles_mail">
@@ -336,10 +342,12 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 						<option value='edit_posts' <?php if($this->form['es_roles_sentmail'] == 'edit_posts') { echo "selected='selected'" ; } ?>><?php echo __( 'Administrator/Editor/Author/Contributor', ES_TDOMAIN ); ?></option>
 					</select>
 				</td>
-			</tr> <?php
+			</tr>
+			<?php
 		}
 
-		public function display_cron_settings() { ?>
+		public function display_cron_settings() {
+			?>
 			<tr class="es-cron hidden">
 				<th scope="row">
 					<label for="tag-image"><?php echo __( 'Cron job URL', ES_TDOMAIN ); ?>
@@ -358,13 +366,13 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 				</th>
 				<td>
 					<input type="number" name="es_cron_mailcount" id="es_cron_mailcount" value="<?php echo $this->form['ig_es_cron_mailcount']; ?>" maxlength="3" />
-					<p class="description"><?php echo __( '(Your web host has limits. We suggest 50 emails per hour to be safe)', ES_TDOMAIN ) ?></p>
+					<p class="description"><?php echo __( '(Your web host has limits. We suggest 50 emails per hour to be safe.)', ES_TDOMAIN ) ?></p>
 				</td>
 			</tr>
 			<tr class="es-cron hidden">
 				<th scope="row">
-					<label for="tag-image"><?php echo __( 'Admin Report', ES_TDOMAIN ); ?>
-						<p class="description"><?php echo __( 'Email to admin whenever cron URL is triggered from your server. (Keywords: ###DATE###, ###SUBJECT###, ###COUNT###)', ES_TDOMAIN ); ?></p>
+					<label for="tag-image"><?php echo __( 'Cron Report', ES_TDOMAIN ); ?>
+						<p class="description"><?php echo __( 'Email to admin whenever a cron URL is triggered from your server.<br />Available Keywords: {{DATE}}, {{SUBJECT}}, {{COUNT}}', ES_TDOMAIN ); ?></p>
 					</label>
 				</th>
 				<td>
@@ -373,13 +381,13 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			</tr>
 			<tr class="es-cron hidden">
 				<td colspan=2>
-				<div class="tool-box">
-					<h3><?php echo __( 'What is Cron (auto emails) and how to setup Cron Job?', ES_TDOMAIN ); ?></h3>
-					<li><?php echo __( '<a target="_blank" href="http://www.icegram.com/documentation/es-how-to-schedule-cron-emails/">What is Cron?</a>', ES_TDOMAIN ); ?></li>
-					<li><?php echo __( '<a target="_blank" href="http://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-parallels-plesk/">Setup cron job in Plesk</a>', ES_TDOMAIN ); ?></li>
-					<li><?php echo __( '<a target="_blank" href="http://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-cpanel/">Setup cron job in cPanal</a>', ES_TDOMAIN ); ?></li>
-					<li><?php echo __( '<a target="_blank" href="http://www.icegram.com/documentation/es-what-to-do-if-hosting-doesnt-support-cron-jobs/">Hosting does not support cron jobs?</a>', ES_TDOMAIN ); ?></li><br>
-				</div>
+					<div class="tool-box">
+						<h3><?php echo __( 'What is Cron (auto emails) and how to setup Cron Job?', ES_TDOMAIN ); ?></h3>
+						<li><?php echo __( '<a target="_blank" href="https://www.icegram.com/documentation/es-how-to-schedule-cron-emails/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page">What is Cron?</a>', ES_TDOMAIN ); ?></li>
+						<li><?php echo __( '<a target="_blank" href="https://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-cpanel/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page">Setup cron job in cPanel</a>', ES_TDOMAIN ); ?></li>
+						<li><?php echo __( '<a target="_blank" href="https://www.icegram.com/documentation/es-how-to-schedule-cron-emails-in-parallels-plesk/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page">Setup cron job in Plesk</a>', ES_TDOMAIN ); ?></li>
+						<li><?php echo __( '<a target="_blank" href="https://www.icegram.com/documentation/es-what-to-do-if-hosting-doesnt-support-cron-jobs/?utm_source=es&utm_medium=in_app&utm_campaign=view_docs_help_page">Hosting does not support cron jobs?</a>', ES_TDOMAIN ); ?></li><br>
+					</div>
 				</td>
 			</tr>
 			<?php
@@ -476,9 +484,10 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			}
 			$form['ig_es_cron_mailcount'] = $es_cron_mailcount;
 
+			$blogname = get_option('blogname');
 			$es_cron_adminmail = get_option('ig_es_cron_adminmail', '');
 			if($es_cron_adminmail == "") {
-				add_option('ig_es_cron_adminmail', "Hi Admin, \r\n\r\nCron URL has been triggered successfully on ###DATE### for the email ###SUBJECT###. And it sent email to ###COUNT### recipient. \r\n\r\nThank You");
+				add_option('ig_es_cron_adminmail', "Hi Admin,\r\n\r\nCron URL has been triggered successfully on {{DATE}} for the email '{{SUBJECT}}'. And it sent email to {{COUNT}} recipient(s).\r\n\r\nBest,\r\n".$blogname."");
 				$es_cron_adminmail = get_option('ig_es_cron_adminmail');
 			}
 			$form['ig_es_cron_adminmail'] = $es_cron_adminmail;
@@ -519,10 +528,10 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 
 				$home_url = home_url('/');
 
-				$optinlink = $home_url . "?es=optin&db=###DBID###&email=###EMAIL###&guid=###GUID###";
+				$optinlink = $home_url . "?es=optin&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}";
 				$form['ig_es_optinlink'] = $optinlink;
 
-				$unsublink = $home_url . "?es=unsubscribe&db=###DBID###&email=###EMAIL###&guid=###GUID###";
+				$unsublink = $home_url . "?es=unsubscribe&db={{DBID}}&email={{EMAIL}}&guid={{GUID}}";
 				$form['ig_es_unsublink'] = $unsublink;
 
 				$form['ig_es_unsubcontent'] = isset($_POST['es_c_unsubtext']) ? $_POST['es_c_unsubtext'] : '';
