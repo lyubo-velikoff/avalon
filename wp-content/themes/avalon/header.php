@@ -53,8 +53,32 @@
             <div class="header">
                 <div class="header-top">
                     <div class="container">
-                        <div class="logo">
-                            <a href="<?php url('/') ?>"><img src="<?php path() ?>/assets/images/logo.png" alt="Avalon Logo"></a>
+                        <div class="row hcontacts">
+                            <div class="col-sm-2">
+                                <div class="logo">
+                                    <a href="<?php url('/') ?>"><img src="<?php path() ?>/assets/images/logo.png" alt="Avalon Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class = "telephones">
+                                    <p> Телефон за контакти: </br> <b>082/51-98-51; 0895606165;</b></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class = "email">    
+                                    <p> Email: </br> <b> avalon_ds@abv.bg </b></p> 
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class = "stranica">    
+                                    <p> Посети нашата страница: </br> <a href="https://www.facebook.com/avalon.imoti/" target="_blank"> <b>Facebook страница Тук</b> </a></p> 
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class = "workingh">
+                                    <p> Работно време: </br> <b>10:00 до 18:00 </b> </p>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

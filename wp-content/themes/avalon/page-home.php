@@ -111,6 +111,8 @@
                             </div>
                         </div>
                     </div>
+
+
                 <?php endforeach; wp_reset_postdata(); ?>
             <?php endif; ?>
 
@@ -126,6 +128,5 @@
     </div>
 
 </div>
-
 
 <?php get_footer(); ?>
