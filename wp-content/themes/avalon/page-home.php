@@ -1,6 +1,7 @@
 <?php /* Template Name: Homepage */ ?>
 
 <?php
+
     $categoriesQuery = array(
         'title_li' => '',
         'order_by' => 'category_id',
@@ -42,7 +43,7 @@
         <div class="properties">
             <div class="search">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 search-columns">
                         <div class="mb10">Продажби/Наеми:</div>
                         <span class="dropdown">
                             <button></button>
@@ -55,7 +56,9 @@
                             </label>
                         </span>
                     </div>
-                    <div class="col-sm-2">
+
+
+                    <div class="col-sm-2 search-columns">
                         <div class="mb10">Район:</div>
                         <span class="dropdown">
                             <button></button>
@@ -69,38 +72,28 @@
                             </label>
                         </span>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="mb10">Цена от:</div>
+                  
+                    <div class="col-sm-2 search-columns">
+                        <div class="mb10">Вид на имота:</div>
                         <span class="dropdown">
                             <button></button>
                             <label>
                                 <input type="checkbox">
                                 <ul>
-                                    <li>Незнам</li>
-                                    <li>Незнам</li>
+                                    <li>Категории Наеми или Продажби, level1 (без 1стае и тн)</li>
+                                    <li>(в зависимост какво е избрано в първия лист) </li>
                                 </ul>
                             </label>
                         </span>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="mb10">Цена до:</div>
-                        <span class="dropdown">
-                            <button></button>
-                            <label>
-                                <input type="checkbox">
-                                <ul>
-                                    <li>Незнам</li>
-                                    <li>Незнам</li>
-                                </ul>
-                            </label>
-                        </span>
-                    </div>
-                    <div class="col-sm-2">
+
+
+                    <div class="col-sm-2 search-columns">
                         <a href="" class="btn">Търси</a>
                     </div>
                 </div>
             </div>
-    
+
             <?php if (!empty($topOffers)) : ?>
                 <?php foreach($topOffers as $post) : ?>
                     <?php setup_postdata( $post ); ?>
@@ -113,13 +106,19 @@
                                 <div class="ml20">
                                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>                            
                                     <div class="description">
+
                                         <?php if (get_field('price')) : ?>
                                             <?php 
                                                 $currency = get_field_object('currency'); 
                                                 $value = $currency['value'];
                                                 $label = $currency['choices'][$value];
+
+                                                $field = get_field_object('currency');
+                                                $value = $field['value'];
+                                                $currency = $field['choices'][ $value ];
                                             ?>
-                                            <div class="price">Цена: <?php the_field('price'); ?> <?php echo $label; ?></div> 
+                                            <div class="price"><?php echo number_format(get_field('price')) . $currency ?></div>
+                                            
                                         <?php endif; ?>
                                         <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
                                             <?php 
@@ -149,7 +148,7 @@
                                                 $floorCountLabel = $floorCount['choices'][$value];
 
                                             ?>
-                                            <div class="floor">Етаж: <?php echo $floorLabel . ' ot ' . $floorCountLabel; ?></div> 
+                                            <div class="floor">Етаж: <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div> 
                                         <?php endif; ?>
 
                                         <?php if (get_field('construction_type')) : ?>

@@ -1749,10 +1749,19 @@
 
 .search {
   margin-bottom: 30px;
-  margin-left: 2%; }
+  margin-left: 2%;
+  padding: 1%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box; }
   .search .btn {
-    margin-top: 25px;
-    margin-left: 25px; }
+    margin-top: 20px;
+    margin-left: 15px; }
+  .search .search-columns {
+    width: 16.66667%;
+    float: left;
+    position: relative;
+    margin-right: 15px;
+    font-size: 14px; }
 
 .dropdown {
   position: relative;
@@ -1905,7 +1914,7 @@ h1 {
           text-decoration: underline;
           color: #D20808; }
   .categories .cat-item {
-    margin-top: 7px; }
+    margin-top: 2px; }
   .categories .children .children {
     display: none; }
   .categories span {
