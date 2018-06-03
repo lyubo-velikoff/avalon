@@ -20,6 +20,11 @@
 
     $topOffers = get_posts($args);
     // echo '<pre>'; print_r($topOffers); echo '</pre>';
+
+    $id = !empty($topOffers[0]->ID) ? $topOffers[0]->ID : 0;
+    $props = get_field_object('neighborhood', $id);    
+    $neighborhoodChoices = $props['choices'];
+
 ?>
 
 <?php get_header(); ?>
@@ -35,7 +40,67 @@
 
         </div>
         <div class="properties">
- 
+            <div class="search">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="mb10">Продажби/Наеми:</div>
+                        <span class="dropdown">
+                            <button>Продажби</button>
+                            <label>
+                                <input type="checkbox">
+                                <ul>
+                                    <li>Продажби</li>
+                                    <li>Наеми</li>
+                                </ul>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="mb10">Район:</div>
+                        <span class="dropdown">
+                            <button></button>
+                            <label>
+                                <input type="checkbox">
+                                <ul>
+                                    <?php foreach($neighborhoodChoices as $choiceKey => $choiceValue) : ?>
+                                        <li><?php echo $choiceValue ?></li>
+                                    <?php endforeach ?> 
+                                </ul>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="mb10">Цена от:</div>
+                        <span class="dropdown">
+                            <button></button>
+                            <label>
+                                <input type="checkbox">
+                                <ul>
+                                    <li>Незнам</li>
+                                    <li>Незнам</li>
+                                </ul>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="mb10">Цена до:</div>
+                        <span class="dropdown">
+                            <button></button>
+                            <label>
+                                <input type="checkbox">
+                                <ul>
+                                    <li>Незнам</li>
+                                    <li>Незнам</li>
+                                </ul>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="" class="btn">Search</a>
+                    </div>
+                </div>
+            </div>
+    
             <?php if (!empty($topOffers)) : ?>
                 <?php foreach($topOffers as $post) : ?>
                     <?php setup_postdata( $post ); ?>
