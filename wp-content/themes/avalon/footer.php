@@ -2,9 +2,7 @@
 		
 		<div class="footer">
 			<div class="container">
-				<div class="email"><?php echo Info::$email; ?></div>
-				<div class="tel"><?php echo Info::$mainTel; ?></div>
-				<div class="copyright">&copy;<?php echo date('Y', strtotime('now')); ?></div>
+				<div class="copyright">Авалон ДС ЕООД  &copy;<?php echo date('Y', strtotime('now')); ?></div>
 			</div>
 		</div>
 			

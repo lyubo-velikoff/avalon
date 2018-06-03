@@ -45,7 +45,7 @@
                     <div class="col-sm-2">
                         <div class="mb10">Продажби/Наеми:</div>
                         <span class="dropdown">
-                            <button>Продажби</button>
+                            <button></button>
                             <label>
                                 <input type="checkbox">
                                 <ul>
@@ -96,7 +96,7 @@
                         </span>
                     </div>
                     <div class="col-sm-2">
-                        <a href="" class="btn">Search</a>
+                        <a href="" class="btn">Търси</a>
                     </div>
                 </div>
             </div>

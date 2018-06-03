@@ -131,7 +131,7 @@
     text-align: center;
 
     color: $white;
-    background-color: $red;
+    background-color: #D20808;
 
     border-radius: 20px;
 
@@ -205,11 +205,12 @@
     }
 
     .header-middle {
-        background-color: $red;
+        background-color: #D20808;
         @include addBoxShadow();
         a {
             color: $white;
             padding: 10px;
+            font-weight: bold;
 
             @include transitionEffect();
             &:hover {
@@ -293,7 +294,7 @@
 			            opacity: 1;
                     }
                     li {
-                        background: $red;
+                        background: #D20808;
                         margin-left: 0;
                         &:before {
                             content: "";
@@ -302,18 +303,18 @@
                         &:hover {
                             background: $white;
                             li {
-                                background: $red;
+                                background: #D20808;
                                 &:hover {
                                     background: $white;
                                     a {
-                                        color: $red;
+                                        color: #D20808;
                                     }
                                 }
                                 a {color: $white;}
                             }
 
                             a {
-                                color: $red;
+                                color: #D20808;
                             }
                         }
                         a {color: $white;}
@@ -358,10 +359,10 @@
 
 /* Footer */
 .footer {
-    background-color: $darkGray;
+    background-color: #5b5656;
     color: $white;
     text-align: center;
-    padding: 60px 0;
+    padding: 20px 0;
 }
 
 

@@ -591,16 +591,16 @@
   color: #31313a !important; }
 
 .red {
-  color: #ed1c24 !important; }
+  color: #D20808 !important; }
 
 .red-bg {
-  background-color: #ed1c24 !important; }
+  background-color: #D20808 !important; }
 
 .fill-red {
-  fill: #ed1c24 !important; }
+  fill: #D20808 !important; }
 
 .red-hover:hover {
-  color: #ed1c24 !important; }
+  color: #D20808 !important; }
 
 .mt4 {
   margin-top: 4px; }
@@ -1571,7 +1571,7 @@
   text-decoration: none;
   text-align: center;
   color: #ffffff;
-  background-color: #ed1c24;
+  background-color: #D20808;
   border-radius: 20px;
   transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
@@ -1636,11 +1636,12 @@
   margin-top: 20px; }
 
 .header .header-middle {
-  background-color: #ed1c24;
+  background-color: #D20808;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   .header .header-middle a {
     color: #ffffff;
     padding: 10px;
+    font-weight: bold;
     transition-duration: 0.2s;
     -webkit-transition-duration: 0.2s;
     -moz-transition-duration: 0.2s;
@@ -1701,7 +1702,7 @@
           visibility: visible;
           opacity: 1; }
         .header .header-middle ul li:hover li {
-          background: #ed1c24;
+          background: #D20808;
           margin-left: 0; }
           .header .header-middle ul li:hover li:before {
             content: "";
@@ -1709,15 +1710,15 @@
           .header .header-middle ul li:hover li:hover {
             background: #ffffff; }
             .header .header-middle ul li:hover li:hover li {
-              background: #ed1c24; }
+              background: #D20808; }
               .header .header-middle ul li:hover li:hover li:hover {
                 background: #ffffff; }
                 .header .header-middle ul li:hover li:hover li:hover a {
-                  color: #ed1c24; }
+                  color: #D20808; }
               .header .header-middle ul li:hover li:hover li a {
                 color: #ffffff; }
             .header .header-middle ul li:hover li:hover a {
-              color: #ed1c24; }
+              color: #D20808; }
           .header .header-middle ul li:hover li a {
             color: #ffffff; }
       .header .header-middle ul li a {
@@ -1741,10 +1742,10 @@
 
 /* Footer */
 .footer {
-  background-color: #31313a;
+  background-color: #5b5656;
   color: #ffffff;
   text-align: center;
-  padding: 60px 0; }
+  padding: 20px 0; }
 
 .search {
   margin-bottom: 30px;
@@ -1877,9 +1878,6 @@ h1 {
 .header .header-top {
   margin-top: 10px; }
 
-.header .header-middle {
-  background-color: #D20808; }
-
 .categories {
   float: left;
   width: 17%;
@@ -1905,7 +1903,7 @@ h1 {
         -o-transition-timing-function: linear; }
         .categories ul li a:hover {
           text-decoration: underline;
-          color: #ed1c24; }
+          color: #D20808; }
   .categories .cat-item {
     margin-top: 7px; }
   .categories .children .children {
@@ -1930,12 +1928,13 @@ h1 {
     padding: 10px;
     color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
-    width: 49%;
+    width: 48%;
     float: left;
     font-size: 14px;
     line-height: 16px; }
     .properties .property:nth-child(2n) {
-      margin-left: 2%; }
+      margin-left: 2%;
+      margin-right: 2%; }
     .properties .property a {
       font-weight: bold;
       color: #000000;
@@ -1970,7 +1969,7 @@ h1 {
       margin-bottom: 5px; }
 
 .property-single .photos {
-  margin-top: 40px; }
+  margin-top: 20px; }
   .property-single .photos .slideshow-slider img {
     max-width: 100%; }
   .property-single .photos .slideshow-slider .slick-arrow {
@@ -2002,17 +2001,21 @@ h1 {
 
 .property-single .price {
   margin-top: 10px;
-  font-size: 40px;
-  line-height: 50px; }
+  font-size: 20px;
+  line-height: 30px; }
 
 .property-single .phone {
   font-size: 20px;
   line-height: 30px;
   font-weight: 600;
-  color: #ed1c24;
+  color: #D20808;
   text-decoration: underline; }
 
 .property-single .btn {
   width: 100%; }
+
+.property-single .p20 {
+  padding-top: 0px;
+  padding-left: 20px; }
 
 /*# sourceMappingURL=style.css.map */
