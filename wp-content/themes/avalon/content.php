@@ -131,7 +131,8 @@
 
 										// check
 										if( $details ): ?>
-										<ul class='details'>Особености: 
+										<h4>Особености:</h4>
+										<ul class='details'> 
 										<?php foreach( $details as $details ): ?> 
 										<li><?php echo $field['choices'][ $details ]; ?></li>
 										<?php endforeach; ?>
@@ -144,7 +145,7 @@
 						<div class="subheading">Телефон за връзка</div>
 						<a href="tel:<?php echo str_replace(" ", "", $phone) ?>" class="phone"><?php echo $phone ?></a>
 						<div class="mt20 tac">
-							<a href="mailto:" class="btn">Изпрати имейл</a>
+							<a href="mailto:" class="btn white">Изпрати имейл</a>
 						</div>
 						<hr/>
 					</div>

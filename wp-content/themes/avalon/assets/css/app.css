@@ -6432,6 +6432,16 @@ a:link {
 .property-single .details {
   font-size: 14px;
   line-height: 20px;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.property-single .details li:before {
+  content: "• ";
+  font-weight: 600;
 }
 
 .property-single .btn {
