@@ -35,6 +35,10 @@
 	$field = get_field_object('furnished');
 	$value = $field['value'];
 	$furnished = $field['choices'][ $value ];
+
+	$field = get_field_object('details');
+	$value = $field['value'];
+	
 	
 	$phone = get_field('phone');
 
@@ -68,7 +72,7 @@
 				<div class="col-sm-5 p20">
 					<div class="heading"><?php the_title(); ?></div>
 
-					<div class="price"><?php echo number_format($price) . $currency ?></div>
+					<div class="price">Цена: <?php echo number_format($price) . $currency ?></div>
                                         <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
                                             <?php 
                                                 $neighborhood = get_field_object('neighborhood'); 
@@ -117,8 +121,24 @@
                                             ?>
                                             <div class="furnished">Обзавеждане: <?php echo $label; ?></div> 
                                         <?php endif; ?>
+
+										<?php
+
+										// vars	
+										$field = get_field_object('details');
+										$details = $field['value'];
+
+
+										// check
+										if( $details ): ?>
+										<ul class='details'>Особености: 
+										<?php foreach( $details as $details ): ?> 
+										<li><?php echo $field['choices'][ $details ]; ?></li>
+										<?php endforeach; ?>
+										</ul>
+										<?php endif; ?>
 		
-					
+
 					<div class="mt30">
 						<hr/>
 						<div class="subheading">Телефон за връзка</div>

@@ -6417,16 +6417,21 @@ a:link {
 
 .property-single .price {
   margin-top: 10px;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .property-single .phone {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 600;
   color: #D20808;
   text-decoration: underline;
+}
+
+.property-single .details {
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .property-single .btn {

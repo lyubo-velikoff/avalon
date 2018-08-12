@@ -73,7 +73,7 @@
                                                 $value = $field['value'];
                                                 $currency = $field['choices'][ $value ];
                                             ?>
-                                            <div class="price"><?php echo number_format(get_field('price')) . $currency ?></div>
+                                            <div class="price">Цена: <?php echo number_format(get_field('price')) . $currency ?></div>
                                             
                                         <?php endif; ?>
                                         <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
