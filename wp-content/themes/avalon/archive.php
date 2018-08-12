@@ -1,6 +1,10 @@
-<?php /* Template Name: Homepage */ ?>
+<?php /* Template Name: Archive (category) */ ?>
 
 <?php
+
+
+    $category = get_queried_object();
+    $categoryId = $category->term_id;
 
     $categoriesQuery = array(
         'title_li' => '',
@@ -11,7 +15,7 @@
 
     $args = array(
         'numberposts' => 10,
-        'category' => the_category_ID(),
+        'category' => $categoryId,
         'orderby' => 'post_date',
         'order' => 'DESC',
         'post_type' => 'post',
@@ -19,13 +23,17 @@
         'suppress_filters' => true
     );
 
+
+    // echo "category: " . $categoryId;
+
     $topOffers = get_posts($args);
     // echo '<pre>'; print_r($topOffers); echo '</pre>';
 
     $id = !empty($topOffers[0]->ID) ? $topOffers[0]->ID : 0;
+
+    $props = get_field_object('neighborhood', $id);   
     $props = get_field_object('neighborhood', $id);    
     $neighborhoodChoices = $props['choices'];
-
 ?>
 
 <?php get_header(); ?>
