@@ -3,10 +3,10 @@
         'title_li' => '',
         'order_by' => 'category_id',
         'hide_empty' => 0,
-        'exclude' => array(1, 36)
+        'exclude' => array(1, 36),
+        // 'feed' => 'Feed'
     );
 ?>
-
 
 
 <!DOCTYPE html>

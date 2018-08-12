@@ -1879,10 +1879,10 @@ h1 {
 .hcontacts {
   font-size: 14px;
   position: relative;
-  color: white; }
+  color: #505050; }
 
 .hcontacts a:visited, a:link {
-  color: white; }
+  color: #505050; }
 
 .header .header-top {
   margin-top: 10px; }
