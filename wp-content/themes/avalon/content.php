@@ -8,15 +8,27 @@
 
 	$photos = get_field('photos');
 
-	$field = get_field_object('in_town');
-	$value = $field['value'];
-	$inTown = $field['choices'][ $value ];
-
 	$price = get_field('price');
 
 	$field = get_field_object('currency');
 	$value = $field['value'];
 	$currency = $field['choices'][ $value ];
+
+	$field = get_field_object('in_town');
+	$value = $field['value'];
+	$inTown = $field['choices'][ $value ];
+
+	$field = get_field_object('neighborhood');
+	$value = $field['value'];
+	$neighborhood = $field['choices'][ $value ];
+
+	$field = get_field_object('area');
+	$value = $field['value'];
+	$area = $field['choices'][ $value ];
+
+	$field = get_field_object('floor');
+	$value = $field['value'];
+	$floor = $field['choices'][ $value ];
 	
 	$phone = get_field('phone');
 
@@ -49,8 +61,12 @@
 				</div>
 				<div class="col-sm-5 p20">
 					<div class="heading"><?php the_title(); ?></div>
-					<div class="subheading"><?php echo $inTown ?></div>
+
 					<div class="price"><?php echo number_format($price) . $currency ?></div>
+					<div class="subheading"><?php echo $inTown ?></div>
+					<div class="neighborhood"><?php echo $neighborhood ?></div>
+					<div class="area"><?php echo $area ?></div>
+					<div class="floor"><?php echo $floor ?></div>
 					<div class="mt30">
 						<hr/>
 						<div class="subheading">Телефон за връзка</div>
