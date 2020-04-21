@@ -29,11 +29,11 @@
     $topOffers = get_posts($args);
     // echo '<pre>'; print_r($topOffers); echo '</pre>';
 
-    $id = !empty($topOffers[0]->ID) ? $topOffers[0]->ID : 0;
+    // $id = !empty($topOffers[0]->ID) ? $topOffers[0]->ID : 0;
 
-    $props = get_field_object('neighborhood', $id);   
-    $props = get_field_object('neighborhood', $id);    
-    $neighborhoodChoices = $props['choices'];
+    // $props = get_field_object('neighborhood', $id);
+    // echo '<pre>' . print_r($props, true) . '</pre>';
+    // $neighborhoodChoices = $props['choices'];
 ?>
 
 <?php get_header(); ?>
