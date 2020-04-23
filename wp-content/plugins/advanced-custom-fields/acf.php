@@ -533,7 +533,7 @@ class acf {
 		    'edit_item' =>  __( 'Edit Field Group' , 'acf' ),
 		    'new_item' => __( 'New Field Group' , 'acf' ),
 		    'view_item' => __('View Field Group', 'acf'),
-		    'search_items' => __('Search Field Groups', 'acf'),
+		    '_items' => __(' Field Groups', 'acf'),
 		    'not_found' =>  __('No Field Groups found', 'acf'),
 		    'not_found_in_trash' => __('No Field Groups found in Trash', 'acf'), 
 		);

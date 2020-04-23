@@ -154,7 +154,7 @@
 
 .body-content {
     position: relative;
-    min-height: calc(100vh - 198px);
+    min-height: calc(100vh - 69px);
 }
 
 
@@ -202,11 +202,20 @@
 .header {
     .header-top {
         margin-top: 20px;
+        text-align: center;
+        @media (min-width: 768px) {
+            text-align: left;
+        }
     }
 
     .header-middle {
+        display: none;
         background-color: #D20808;
+        font-size: 14px;
         @include addBoxShadow();
+        @media (min-width: 768px) {
+            display: block;
+        }
         a {
             color: $white;
             padding: 10px;
@@ -355,6 +364,10 @@
 
     }
 
+}
+
+.select-boxes {
+    padding: 8px 15px;
 }
 
 /* Footer */
