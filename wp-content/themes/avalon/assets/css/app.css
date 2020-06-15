@@ -6471,4 +6471,9 @@ a:link {
   padding-left: 20px;
 }
 
+.office-photo {
+  width: 100%;
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */
