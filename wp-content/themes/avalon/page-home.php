@@ -80,7 +80,7 @@
 
                 <div class="search">
                     <form action="" method="POST">
-                        <div class="row tac">
+                        <div class="row">
                             <div class="col-md-4 search-columns">
                                 <div class="mb10">Продажби/Наеми:</div>
                                 <select class="select-boxes" id="filter-type" name="filter-type">
