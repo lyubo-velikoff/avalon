@@ -39,8 +39,8 @@
                     <br><br>
                 </address>
                 <hr>
-                <p>Email:<br>avalon_ds@abv.bg</p>
-                <p>Телефон:<br>082/51-98-51; 0895 606 165;</p>
+                <p><strong>Email:</strong><br>avalon_ds@abv.bg</p>
+                <p><strong>Телефон:</strong><br>082/51-98-51; 0895 606 165;</p>
             </div><!-- /col -->
             <div class="col-lg-6">
                 <div class=""><img class="office-photo" src="https://www.zjandb.com/wp-content/themes/zjandb/assets/images/front-office.jpg" alt=""></div>
