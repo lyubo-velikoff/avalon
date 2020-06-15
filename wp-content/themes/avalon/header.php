@@ -86,8 +86,8 @@
                         <ul class="nav">
                             <li><a href="<?php url('/') ?>">Начало</a></li>
                             <?php wp_list_categories( $categoriesQuery ); ?>
-                            <li><a href="#">За нас</a></li>
-                            <li><a href="#">Контакти</a></li>
+                            <li><a href="<?php url('/about') ?>">За нас</a></li>
+                            <li><a href="<?php url('/contact') ?>">Контакти</a></li>
                         </ul>
                     </div>
                 </div>
