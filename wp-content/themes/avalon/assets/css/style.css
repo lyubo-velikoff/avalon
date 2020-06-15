@@ -1876,8 +1876,11 @@ body {
 a {
   text-decoration: none; }
 
-h1 {
+h1, h2, h3 {
   text-align: center; }
+
+h2 {
+  text-decoration: solid; }
 
 .content {
   padding: 20px 0; }
@@ -2051,6 +2054,15 @@ h1 {
 
 .office-photo {
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 450px;
+  margin-top: 10px; }
+
+.address {
+  font-style: normal; }
+
+.title {
+  text-align: center;
+  font-size: 24px; }
 
 /*# sourceMappingURL=style.css.map */
