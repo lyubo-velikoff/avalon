@@ -43,7 +43,7 @@
                 <p>Телефон:<br>082/51-98-51; 0895 606 165;</p>
             </div><!-- /col -->
             <div class="col-lg-6">
-                <div class=""><img class="office-photo" src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.0-9/32215310_2105045703099392_4711314171474477056_n.jpg?_nc_cat=102&_nc_sid=cdbe9c&_nc_ohc=X9fVqamuHusAX8lso9V&_nc_ht=scontent-lhr8-1.xx&oh=da64296e2e8664cfa2b853c30b00033b&oe=5F0C6759" alt=""></div>
+                <div class=""><img class="office-photo" src="https://www.zjandb.com/wp-content/themes/zjandb/assets/images/front-office.jpg" alt=""></div>
             </div><!-- /col -->
         </div>
     </div>
