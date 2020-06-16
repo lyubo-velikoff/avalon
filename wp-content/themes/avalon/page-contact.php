@@ -46,42 +46,42 @@
                
                 <p><strong>Работно време:</strong>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         Понеделник: 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         10:00 - 18:00
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         Вторник:
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         10:00 - 18:00
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         Сряда: 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         10:00 - 18:00
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         Четвъртък: 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         10:00 - 18:00
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         Петък: 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         10:00 - 18:00
                     </div>
                 </div>
