@@ -1,5 +1,8 @@
 <?php /* Template Name: Contact Us */ ?>
 
+<?php
+    $thumbnail = get_the_post_thumbnail_url();
+?>
 <?php get_header(); ?>
 
 <div class="google-map row">
@@ -37,17 +40,56 @@
                 <address class="address">
                   
                     <h1> Авалон Недвижими Имоти </h1>
-                    Цар Асен 31, Вход 3, Офис 6, Русе, П.К. 7000
+                   <div class="sub-title tac">Цар Асен 31, Вход 3, Офис 6, Русе, П.К. 7000</div>
                     <br><br>
                 </address>
                
                 <p><strong>Работно време:</strong>
-                <br>Понеделник: 10:00 - 18:00 <br> Вторник: 10:00 - 18:00 <br>Сряда: 10:00 - 18:00 <br>Четвъртък: 10:00 - 18:00 <br>Петък: 10:00 - 18:00 </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Понеделник: 
+                    </div>
+                    <div class="col-sm-6">
+                        10:00 - 18:00
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Вторник:
+                    </div>
+                    <div class="col-sm-6">
+                        10:00 - 18:00
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Сряда: 
+                    </div>
+                    <div class="col-sm-6">
+                        10:00 - 18:00
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Четвъртък: 
+                    </div>
+                    <div class="col-sm-6">
+                        10:00 - 18:00
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Петък: 
+                    </div>
+                    <div class="col-sm-6">
+                        10:00 - 18:00
+                    </div>
+                </div>
                 <p><strong>Телефон:</strong><br>082/51-98-51; 0895 606 165;</p>
                 <p><strong>Email:</strong><br>avalon_ds@abv.bg;</p>
             </div><!-- /col -->
             <div class="col-lg-6">
-                <div class=""><img class="office-photo" src="https://www.zjandb.com/wp-content/themes/zjandb/assets/images/front-office.jpg" alt=""></div>
+                <div class=""><img class="office-photo" src="<?php echo $thumbnail ?>" alt=""></div>
             </div><!-- /col -->
         </div>
     </div>

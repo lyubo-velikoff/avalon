@@ -6493,4 +6493,10 @@ a:link {
   font-size: 24px;
 }
 
+.sub-title {
+  text-align: center;
+  font-size: 18px;
+  margin-top: -20px;
+}
+
 /*# sourceMappingURL=style.css.map */
