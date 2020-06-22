@@ -1587,7 +1587,7 @@
 .heading,
 .copy,
 .btn {
-  font-family: sans-serif, Helvetica; }
+  font-family: Tahoma, Verdana, Segoe, sans-serif; }
 
 /* Sticky Footer */
 .body-content {
@@ -1860,7 +1860,7 @@
   box-sizing: border-box; }
 
 body {
-  font-family: sans-serif, Helvetica;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
   font-style: normal;
   width: 100%;
   height: 100%;
