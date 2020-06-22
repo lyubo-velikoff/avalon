@@ -27,6 +27,9 @@ h2 {
     text-decoration: solid;
 }
 
+img {
+    max-width: 100%;
+}
 
 .content {
     padding: 20px 0;
@@ -277,3 +280,8 @@ h2 {
     margin-top: -20px;
 }
 
+.about-info {
+    a {
+        text-decoration: underline;
+    }
+}

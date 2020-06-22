@@ -1882,6 +1882,9 @@ h1, h2, h3 {
 h2 {
   text-decoration: solid; }
 
+img {
+  max-width: 100%; }
+
 .content {
   padding: 20px 0; }
 
@@ -2069,5 +2072,8 @@ h2 {
   text-align: center;
   font-size: 18px;
   margin-top: -20px; }
+
+.about-info a {
+  text-decoration: underline; }
 
 /*# sourceMappingURL=style.css.map */
