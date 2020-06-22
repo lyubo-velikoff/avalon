@@ -156,8 +156,8 @@
 
 	<?php endif; ?>
 
-	<div class="post-content dtt">
-		<div class="heading"><?php the_title(); ?></div>
+	<div class="post-content dtt pt20">
+		<div class="heading">Описание на имота:</div>
 		<div class="copy mt20"><?php the_content(); ?></div>
 	</div>
 </div>
