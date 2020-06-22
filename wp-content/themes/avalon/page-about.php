@@ -11,11 +11,11 @@
     <div class="container clearfix">
         <h1>АВАЛОН НЕДВИЖИМИ ИМОТИ</h1>
         <div class="row">
-            <div class="col-md-6">
-                <img src="<?php echo $thumbnail ?>" alt="Avalon Ltd">
+            <div class="col-md-3 tac">
+                <img class="about-img" src="<?php echo $thumbnail ?>" alt="Avalon Ltd">
             </div>
-            <div class="col-md-6">
-                <div class="about-info p20">
+            <div class="col-md-9">
+                <div class="about-info">
                     <p>
                         Агенция за недвижими имоти 'Авалон', отваря врати през 2008 година и се реализира успешно на пазара повече от десет години. 
                     </p>

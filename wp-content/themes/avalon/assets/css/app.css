@@ -5842,7 +5842,7 @@ textarea {
 .heading,
 .copy,
 .btn {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Sticky Footer */
@@ -6208,7 +6208,7 @@ textarea {
 }
 
 body {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   width: 100%;
   height: 100%;
@@ -6503,8 +6503,24 @@ a:link {
   margin-top: -20px;
 }
 
+.about-img {
+  max-height: 350px;
+  width: auto;
+  text-align: center;
+}
+
+.about-info {
+  padding: 20px;
+}
+
 .about-info a {
   text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  .about-info {
+    padding: 20px 100px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

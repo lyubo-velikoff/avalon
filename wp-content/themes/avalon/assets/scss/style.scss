@@ -280,8 +280,28 @@ img {
     margin-top: -20px;
 }
 
+.about-img {
+    max-height: 350px;
+    width: auto;
+    text-align: center;
+}
+
 .about-info {
+    padding: 20px;
+
     a {
         text-decoration: underline;
     }
+
+    @media(min-width: 992px) {
+        padding: 20px 100px;
+    }
 }
+
+
+
+// .telephones {
+//     p {
+//         font-size: 12px;
+//     }
+// }
