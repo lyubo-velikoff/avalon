@@ -23,6 +23,7 @@
 	$neighborhood = $field['choices'][ $value ];
 
 	$area = get_field('area'); 
+	$yard = get_field('yard'); 
 
 	$field = get_field_object('floor');
 	$value = $field['value'];
@@ -87,8 +88,13 @@
                                         <?php endif; ?>
 
 					<?php if (get_field('area')) : ?>
-                                <div class="area">Квадратура: <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div> 
+						<div class="area">Квадратура: <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div> 
                     <?php endif; ?>
+
+					<?php if (get_field('yard')) : ?>
+						<div class="yard">Двор: <?php the_field('yard') ?> <?php echo 'кв.м.'; ?></div> 
+                    <?php endif; ?>
+
 					<?php if (get_field('floor') && get_field('floor_count')) : ?>
                                             <?php 
                                                 $floor = get_field_object('floor'); 
