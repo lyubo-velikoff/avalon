@@ -6400,8 +6400,20 @@ a:link {
   margin-top: 20px;
 }
 
+.property-single .photos .slideshow-slider {
+  height: 470px;
+  background-color: #000000;
+}
+
 .property-single .photos .slideshow-slider img {
   max-width: 100%;
+  margin: 0 auto;
+  background-color: #000000;
+  max-height: 470px;
+}
+
+.property-single .photos .slideshow-slider .slick-slide {
+  background-color: #000000;
 }
 
 .property-single .photos .slideshow-slider .slick-arrow {
@@ -6428,15 +6440,19 @@ a:link {
 
 .property-single .photos .slideshow-nav {
   margin-top: 1px;
+  max-height: 115px;
+  background-color: #000000;
 }
 
 .property-single .photos .slideshow-nav .slide {
-  height: 125px;
+  height: 115px;
   padding: 1px;
 }
 
 .property-single .photos .slideshow-nav img {
   max-width: 100%;
+  max-height: 115px;
+  margin: 0 auto;
 }
 
 .property-single .subheading {

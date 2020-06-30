@@ -24,7 +24,7 @@ avalon.setSlideshow = function() {
         arrows: true,
         fade: true,
         asNavFor: '.slideshow-nav',
-        adaptiveHeight: true
+        adaptiveHeight: false
     });
 
     $('.slideshow-nav').slick({
@@ -35,7 +35,8 @@ avalon.setSlideshow = function() {
         dots: false,
         centerMode: false,
         focusOnSelect: true,
-        vertical: false
+        vertical: false,
+        adaptiveHeight: false
     });
 
 
