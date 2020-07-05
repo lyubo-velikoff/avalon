@@ -15,7 +15,7 @@ $categoriesQuery = array(
 );
 
 $args = array(
-    'numberposts' => 10,
+    'numberposts' => 100,
     'category' => $categoryFilter,
     'meta_query' => $metaFilter,
     'orderby' => 'post_date',
