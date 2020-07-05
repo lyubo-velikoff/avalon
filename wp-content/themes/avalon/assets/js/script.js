@@ -48,4 +48,9 @@ $(document).ready(function() {
     avalon.setUpNav();
     avalon.setUpCategoryFilter();
     avalon.setSlideshow();
+
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
 });

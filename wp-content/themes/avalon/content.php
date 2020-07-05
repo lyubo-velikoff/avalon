@@ -54,7 +54,7 @@ $phone = get_field('phone');
 					<div class="slideshow-slider">
 						<?php foreach ($photos as $photo) : ?>
 							<div class="slide">
-								<img src="<?php echo $photo['photo']; ?>" alt="">
+								<a href="<?php echo $photo['photo']; ?>" data-lightbox="carousel-lightbox" data-title="<?php the_title(); ?>"><img src="<?php echo $photo['photo']; ?>" alt=""></a>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -62,7 +62,7 @@ $phone = get_field('phone');
 					<div class="slideshow-nav">
 						<?php foreach ($photos as $photo) : ?>
 							<div class="slide">
-								<img src="<?php echo $photo['photo']; ?>" alt="">
+								<img src="<?php echo $photo['photo']; ?>" alt="" data-lightbox="property-view">
 							</div>
 						<?php endforeach; ?>
 					</div>
