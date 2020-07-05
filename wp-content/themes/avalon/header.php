@@ -18,9 +18,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Avalon 2017 Description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="shortcut icon" type="image/x-icon" href="<?php path() ?>/favicon.ico">
     
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php path() ?>/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php path() ?>/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php path() ?>/favicon-16x16.png">
+    <link rel="manifest" href="<?php path() ?>/site.webmanifest">
+
     <style>
         body {display: none;}
     </style>
