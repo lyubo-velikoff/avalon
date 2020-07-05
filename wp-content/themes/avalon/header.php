@@ -11,12 +11,12 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <title>Avalon <?php echo date('Y') ?></title>
+    <title>Авалон Недвижими Имоти</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Avalon 2017 Description">
+    <meta name="description" content="Авалон Недвижими Имоти">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="apple-touch-icon" sizes="180x180" href="<?php path() ?>/apple-touch-icon.png">
