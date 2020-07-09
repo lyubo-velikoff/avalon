@@ -1,7 +1,7 @@
 {
-  "name": "workflow",
+  "name": "avalon",
   "version": "0.2.2",
-  "description": "Workflow Continuous Integration",
+  "description": "Avalon WP",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp-sass": "^4.0.1"
