@@ -62,7 +62,6 @@
 <div class="content">
     <div class="container clearfix">
         <div class="categories">
-            How you doin'
             <?php 
                 echo '<ul class="my-categories-menu">';
                 wp_list_categories( $categoriesQuery ); 
