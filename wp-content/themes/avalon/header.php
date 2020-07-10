@@ -16,7 +16,7 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Авалон Недвижими Имоти">
+    <meta name="description" content="Агенция за Недвижими Имоти 'Авалон' Русе, Avalon Estate Agency, Ruse, Bulgaria">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="apple-touch-icon" sizes="180x180" href="<?php path() ?>/apple-touch-icon.png">
@@ -67,13 +67,13 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <div class = "email">    
+                                <div class = "email">
                                     <p> Email: </br> <b> avalon_ds@abv.bg </b></p> 
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <div class = "stranica">    
-                                    <p> Посети нашата страница: </br> <a href="https://www.facebook.com/avalon.imoti/" target="_blank"> <b>Facebook страница Тук</b> </a></p> 
+                                <div class = "stranica">
+                                    <p> Посети нашата страница: </br> <a href="https://www.facebook.com/avalon.imoti/" target="_blank"> <b>Facebook страница  <span class="red">Тук</span></b> </a></p> 
                                 </div>
                             </div>
                             <div class="col-sm-2">
