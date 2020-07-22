@@ -21,6 +21,11 @@ function placeholderImage()
     return bloginfo('template_url') . '/assets/images/placeholder.png';
 }
 
+function isStaging()
+{
+    return strpos(get_permalink(), 'staging') !== false ? true : false;
+}
+
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
@@ -33,7 +38,7 @@ function theme_name_wp_title($title, $sep)
     if (is_feed()) {
         return $title;
     }
-    
+
     global $page, $paged;
 
     // Add the blog name
@@ -46,11 +51,10 @@ function theme_name_wp_title($title, $sep)
     }
 
     // Add a page number if necessary:
-    if (($paged >= 2 || $page >= 2) && ! is_404()) {
+    if (($paged >= 2 || $page >= 2) && !is_404()) {
         $title .= " $sep " . sprintf(__('Page %s', '_s'), max($paged, $page));
     }
 
     return $title;
 }
 add_filter('wp_title', 'theme_name_wp_title', 10, 2);
-
