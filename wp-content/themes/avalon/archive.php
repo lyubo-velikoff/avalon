@@ -3,7 +3,7 @@
 <?php
 $category = get_queried_object();
 $categoryId = $category->term_id;
-$BLANK_POST_STORAGE_ID = 92;
+$BLANK_POST_STORAGE_ID = 1317;
 $categoryFilter = $categoryId;
 $metaFilter = array();
 
