@@ -6,7 +6,7 @@
     $TOP_OFFERS_ID = '36';
     $SALES_ID = '37';
     $RENTS_ID = '3';
-    $BLANK_POST_STORAGE_ID = 92;
+    $BLANK_POST_STORAGE_ID = 1317;
     $categoryFilter = $TOP_OFFERS_ID; // oferti  36, prodajbi 37, naemi 3
     $metaFilter = array();
     $isFilterTypeSelected = false;
@@ -53,6 +53,7 @@
     // echo '<pre>'; print_r($topOffers); echo '</pre>';
 
     $props = get_field_object('neighborhood', $BLANK_POST_STORAGE_ID); 
+    // echo '<pre>' . print_r($props, true) . '</pre>'; die();
     $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] : array();
     // echo '<pre>' . print_r($neighborhoodChoices, true) . '</pre>'; die();
 ?>
