@@ -18,6 +18,14 @@ avalon.setUpCategoryFilter = function () {
   });
 };
 
+avalon.openNav = function () {
+  document.getElementById("mySidenav").style.width = "100%";
+};
+
+avalon.closeNav = function () {
+  document.getElementById("mySidenav").style.width = "0";
+};
+
 avalon.setSlideshow = function () {
   $(".slideshow-slider").slick({
     slidesToShow: 1,

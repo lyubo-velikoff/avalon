@@ -165,7 +165,7 @@ $phone = get_field('phone');
 
           // check
           if ($details) : ?>
-            <h4 class="mb0 mt30">Особености на парцела:</h4>
+            <h4 class="mb0">Особености на парцела:</h4>
             <ul class='details'>
               <?php foreach ($details as $details) : ?>
                 <li><?php echo $field['choices'][$details]; ?></li>

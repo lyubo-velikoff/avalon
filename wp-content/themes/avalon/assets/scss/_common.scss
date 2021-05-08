@@ -253,7 +253,7 @@
   text-align: center;
 
   color: $white;
-  background-color: #d20808;
+  background-color: $red1;
 
   border-radius: 20px;
 
@@ -332,10 +332,10 @@
 
   .header-middle {
     display: none;
-    background-color: #d20808;
+    background-color: $red1;
     font-size: 14px;
     @include addBoxShadow();
-    @media (min-width: 998px) {
+    @media (min-width: 768px) {
       display: block;
     }
     a {
@@ -410,9 +410,12 @@
       li {
         float: left;
         position: relative;
-        width: 170px;
+        width: 140px;
         list-style: none;
 
+        @media (min-width: 820px) {
+          width: 150px;
+        }
         @media (min-width: 998px) {
           width: 180px;
         }
@@ -503,4 +506,90 @@
   color: $white;
   text-align: center;
   padding: 20px 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: $red1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align: center;
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      color: #f1f1f1;
+    }
+  }
+
+  .sidenav-links {
+    a {
+      --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #000000),
+        var(--tw-ring-shadow, 0 0 #000000), var(--tw-shadow);
+      color: #fff;
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: $white;
+  }
+}
+
+.sidenav-icon {
+  font-size: 30px;
+  text-align: right;
+  margin-right: 10px;
+  .tel {
+    display: none;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  @media (min-width: 360px) {
+    font-size: 40px;
+    .tel {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    text-align: left;
+  }
+  .sidenav {
+    // padding-top: 15px;
+    a {
+      // font-size: 18px;
+    }
+  }
+  .telephones {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hide-above-tablet {
+    display: none;
+  }
+  .sidenav-icon {
+    display: none;
+  }
 }
