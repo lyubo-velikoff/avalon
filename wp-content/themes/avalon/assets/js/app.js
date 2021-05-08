@@ -14030,10 +14030,6 @@ avalon.setSlideshow = function () {
     adaptiveHeight: true,
   });
 
-  setTimeout(function () {
-    $(".slideshow-slider").slick("reinit");
-  }, 500);
-
   $(".slideshow-nav").slick({
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -14045,6 +14041,11 @@ avalon.setSlideshow = function () {
     vertical: false,
     adaptiveHeight: true,
   });
+
+  setTimeout(function () {
+    $(".slideshow-slider").slick("reinit");
+    $(".slideshow-nav").slick("reinit");
+  }, 500);
 };
 
 $(document).ready(function () {
