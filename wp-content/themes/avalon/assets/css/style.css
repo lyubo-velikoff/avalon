@@ -2012,7 +2012,7 @@ a:link {
     .property-single .photos .slideshow-slider {
       background-color: #000000;
       display: block;
-      height: auto; }
+      min-height: 200px; }
       .property-single .photos .slideshow-slider img {
         max-width: 100%;
         margin: 0 auto;
