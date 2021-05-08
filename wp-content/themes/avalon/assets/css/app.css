@@ -6609,6 +6609,11 @@ a:link {
   }
 }
 
+.property-single {
+  position: relative;
+  overflow: hidden;
+}
+
 .property-single .photos {
   margin-top: 20px;
 }

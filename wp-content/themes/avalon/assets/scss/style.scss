@@ -192,6 +192,8 @@ a:link {
 }
 
 .property-single {
+  position: relative;
+  overflow: hidden;
   .photos {
     margin-top: 20px;
     .slideshow-slider {
