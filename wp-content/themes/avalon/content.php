@@ -49,7 +49,7 @@ $phone = get_field('phone');
 
     <div class="photos">
       <div class="row">
-        <div class="col-sm-7 relative">
+        <div class="col-md-7 relative">
 
           <div class="slideshow-slider">
             <?php foreach ($photos as $photo) : ?>
@@ -67,10 +67,10 @@ $phone = get_field('phone');
             <?php endforeach; ?>
           </div>
         </div>
-        <div class="col-sm-5 p20">
-          <div class="heading"><?php the_title(); ?></div>
+        <div class="col-md-5 p20 post-text">
+          <div class="heading red1"><?php the_title(); ?></div>
 
-          <div class="price">Цена: <?php echo number_format($price) . $currency ?></div>
+          <div class="price"><b>Цена:</b> <?php echo number_format($price) . $currency ?></div>
           <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
             <?php
             $neighborhood = get_field_object('neighborhood');
@@ -81,7 +81,7 @@ $phone = get_field('phone');
             $value = $city['value'];
             $cityLabel = $city['choices'][$value];
             ?>
-            <div class="neighborhood"><?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div>
+            <div class="neighborhood"><b>Местоположение:</b> <?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('region')) : ?>
@@ -90,15 +90,15 @@ $phone = get_field('phone');
             $value = $field['value'];
             $region = $field['choices'][$value];
             ?>
-            <div class="region">Населено място: <?php echo $region; ?></div>
+            <div class="region"><b>Населено място:</b> <?php echo $region; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('area')) : ?>
-            <div class="area">Квадратура: <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
+            <div class="area"><b>Квадратура:</b> <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('yard')) : ?>
-            <div class="yard">Земя: <?php the_field('yard') ?> <?php echo 'кв.м.'; ?></div>
+            <div class="yard"><b>Земя:</b> <?php the_field('yard') ?> <?php echo 'кв.м.'; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('floor') && get_field('floor_count')) : ?>
@@ -112,7 +112,7 @@ $phone = get_field('phone');
             $floorCountLabel = $floorCount['choices'][$value];
 
             ?>
-            <div class="floor">Етаж: <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
+            <div class="floor"><b>Етаж:</b> <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
           <?php endif; ?>
 
 
@@ -122,7 +122,7 @@ $phone = get_field('phone');
             $value = $constructionType['value'];
             $label = $constructionType['choices'][$value];
             ?>
-            <div class="construction-type">Вид строителство: <?php echo $label; ?></div>
+            <div class="construction-type"><b>Вид строителство:</b> <?php echo $label; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('furnished')) : ?>
@@ -131,7 +131,7 @@ $phone = get_field('phone');
             $value = $furnished['value'];
             $label = $furnished['choices'][$value];
             ?>
-            <div class="furnished">Обзавеждане: <?php echo $label; ?></div>
+            <div class="furnished"><b>Обзавеждане:</b> <?php echo $label; ?></div>
           <?php endif; ?>
 
           <?php if (get_field('regulation')) : ?>
@@ -140,7 +140,7 @@ $phone = get_field('phone');
             $value = $field['value'];
             $regulation = $field['choices'][$value];
             ?>
-            <div class="regulation">Регулация: <?php echo $regulation; ?></div>
+            <div class="regulation"><b>Регулация:</b> <?php echo $regulation; ?></div>
           <?php endif; ?>
 
           <?php
@@ -150,7 +150,7 @@ $phone = get_field('phone');
 
           // check
           if ($details) : ?>
-            <h4>Особености:</h4>
+            <h4 class="mb0">Особености:</h4>
             <ul class='details'>
               <?php foreach ($details as $details) : ?>
                 <li><?php echo $field['choices'][$details]; ?></li>
@@ -165,7 +165,7 @@ $phone = get_field('phone');
 
           // check
           if ($details) : ?>
-            <h4>Особености:</h4>
+            <h4 class="mb0 mt30">Особености на парцела:</h4>
             <ul class='details'>
               <?php foreach ($details as $details) : ?>
                 <li><?php echo $field['choices'][$details]; ?></li>

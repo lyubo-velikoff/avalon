@@ -51,7 +51,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
         <?php if (!empty($topOffers)) : ?>
           <?php foreach ($topOffers as $post) : ?>
             <?php setup_postdata($post); ?>
-            <div class="col-md-6 property-container">
+            <div class="col-lg-6 property-container">
               <div class="property">
                 <div class="row">
                   <div class="col-sm-6">
@@ -72,7 +72,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                           $value = $field['value'];
                           $currency = $field['choices'][$value];
                           ?>
-                          <div class="price">Цена: <?php echo number_format(get_field('price')) . $currency ?></div>
+                          <div class="price"><b>Цена:</b> <?php echo number_format(get_field('price')) . $currency ?></div>
 
                         <?php endif; ?>
                         <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
@@ -85,11 +85,11 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                           $value = $city['value'];
                           $cityLabel = $city['choices'][$value];
                           ?>
-                          <div class="neighborhood"><?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div>
+                          <!-- <div class="neighborhood"><b>Местоположение:</b> <?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div> -->
                         <?php endif; ?>
 
                         <?php if (get_field('area')) : ?>
-                          <div class="area">Квадратура: <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
+                          <div class="area"><b>Квадратура:</b> <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
                         <?php endif; ?>
 
                         <?php if (get_field('floor') && get_field('floor_count')) : ?>
@@ -103,7 +103,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                           $floorCountLabel = $floorCount['choices'][$value];
 
                           ?>
-                          <div class="floor">Етаж: <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
+                          <div class="floor"><b>Етаж:</b> <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
                         <?php endif; ?>
 
                         <?php if (get_field('construction_type')) : ?>
@@ -112,7 +112,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                           $value = $constructionType['value'];
                           $label = $constructionType['choices'][$value];
                           ?>
-                          <div class="construction-type">Вид строителство: <?php echo $label; ?></div>
+                          <div class="construction-type"><b>Вид строителство:</b> <?php echo $label; ?></div>
                         <?php endif; ?>
 
                         <?php if (get_field('furnished')) : ?>
@@ -121,7 +121,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                           $value = $furnished['value'];
                           $label = $furnished['choices'][$value];
                           ?>
-                          <div class="furnished">Обзавеждане: <?php echo $label; ?></div>
+                          <div class="furnished"><b>Обзавеждане:</b> <?php echo $label; ?></div>
                         <?php endif; ?>
 
                       </div>

@@ -1,17 +1,19 @@
 /* Colours */
 $colours: (
-    'white': #ffffff,
-    'black' : #000000,
-    'light-gray': #C8C8C8,
-    'dark-gray': #31313a,
-    'red': #D20808,
+  "white": #ffffff,
+  "black": #000000,
+  "light-gray": #c8c8c8,
+  "dark-gray": #31313a,
+  "red": #d20808,
+  "red1": #b91c1c,
 );
 
-$black: map-get($colours, 'black');
-$white: map-get($colours, 'white');
-$lightGray: map-get($colours, 'light-gray');
-$darkGray: map-get($colours, 'dark-gray');
-$red: map-get($colours, 'red');
+$black: map-get($colours, "black");
+$white: map-get($colours, "white");
+$lightGray: map-get($colours, "light-gray");
+$darkGray: map-get($colours, "dark-gray");
+$red: map-get($colours, "red");
+$red1: map-get($colours, "red1");
 
 /* fonts */
 $font1: Arial, Helvetica, sans-serif;
@@ -20,28 +22,28 @@ $font1: Arial, Helvetica, sans-serif;
 $transitionDuration: 0.2s;
 $transitionTiming: linear;
 @mixin transitionEffect() {
-    
-    transition-duration: $transitionDuration;
-    -webkit-transition-duration: $transitionDuration;
-    -moz-transition-duration: $transitionDuration;
-    -o-transition-duration: $transitionDuration;
-    
-    transition-timing-function: $transitionTiming;
-    -webkit-transition-timing-function: $transitionTiming;
-    -moz-transition-timing-function: $transitionTiming;
-    -o-transition-timing-function: $transitionTiming;
+  transition-duration: $transitionDuration;
+  -webkit-transition-duration: $transitionDuration;
+  -moz-transition-duration: $transitionDuration;
+  -o-transition-duration: $transitionDuration;
 
+  transition-timing-function: $transitionTiming;
+  -webkit-transition-timing-function: $transitionTiming;
+  -moz-transition-timing-function: $transitionTiming;
+  -o-transition-timing-function: $transitionTiming;
 }
 
 @mixin addBoxShadow() {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 $sm: 480px;
 $md: 768px;
 $lg: 992px;
 @mixin responsive($size) {
-    @media (min-width: $size) { @content; }
+  @media (min-width: $size) {
+    @content;
+  }
 }
 
 $carretRight: "\f0da";

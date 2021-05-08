@@ -1,14 +1,20 @@
-@import '_constants';
+@import "_constants";
 
 @each $colour, $code in $colours {
-    .#{$colour}{color: $code !important;}
-    .#{$colour}-bg{background-color: $code !important;}
-    .fill-#{$colour} {fill: $code !important;}
-    .#{$colour}-hover {
-        &:hover {
-            color: $code !important
-        }
+  .#{$colour} {
+    color: $code !important;
+  }
+  .#{$colour}-bg {
+    background-color: $code !important;
+  }
+  .fill-#{$colour} {
+    fill: $code !important;
+  }
+  .#{$colour}-hover {
+    &:hover {
+      color: $code !important;
     }
+  }
 }
 
 // @each $size in (11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 25, 27, 29, 31, 38, 39, 41, 43, 45) {
@@ -18,366 +24,483 @@
 //     }
 // }
 
-@each $margin in (4, 5, 10, 20,25, 30, 40, 45, 50, 60, 90, 100) {
-    .mt#{$margin} {margin-top: #{$margin}px;}
-    .mr#{$margin} {margin-right: #{$margin}px;}
-    .nmt#{$margin} {margin-top: -#{$margin}px;}
-    .mb#{$margin} {margin-bottom: #{$margin}px;}
-    .ml#{$margin} {margin-left: #{$margin}px;}
-    .nml#{$margin} {margin-left: -#{$margin}px;}
-    .mtb#{$margin} {margin-top: #{$margin}px; margin-bottom: #{$margin}px;}
+@each $margin in (0, 4, 5, 10, 20, 25, 30, 40, 45, 50, 60, 90, 100) {
+  .mt#{$margin} {
+    margin-top: #{$margin}px;
+  }
+  .mr#{$margin} {
+    margin-right: #{$margin}px;
+  }
+  .nmt#{$margin} {
+    margin-top: -#{$margin}px;
+  }
+  .mb#{$margin} {
+    margin-bottom: #{$margin}px;
+  }
+  .ml#{$margin} {
+    margin-left: #{$margin}px;
+  }
+  .nml#{$margin} {
+    margin-left: -#{$margin}px;
+  }
+  .mtb#{$margin} {
+    margin-top: #{$margin}px;
+    margin-bottom: #{$margin}px;
+  }
 
-    
-    @include responsive ($sm)  {
-        .sm-ml#{$margin} {margin-left: #{$margin}px;}
+  @include responsive($sm) {
+    .sm-ml#{$margin} {
+      margin-left: #{$margin}px;
     }
+  }
 
-    @media(min-width: 992px) {
-        .md-mr#{$margin} {margin-right: #{$margin}px;}
+  @media (min-width: 998px) {
+    .md-mr#{$margin} {
+      margin-right: #{$margin}px;
     }
+    .md-mt#{$margin} {
+      margin-top: #{$margin}px;
+    }
+  }
+  @media (min-width: 768px) {
+    .sm-mt0 {
+      margin-top: 0 !important;
+    }
+  }
+  @media (min-width: 998px) {
+    .md-mt0 {
+      margin-top: 0 !important;
+    }
+  }
 }
 
 @each $padding in (3, 5, 10, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100) {
-    .p#{$padding} {padding: #{$padding}px;}
-    .ptb#{$padding} {padding: #{$padding}px 0;}
-    .pr#{$padding} {padding-right: #{$padding}px;}
-    .pl#{$padding} {padding-left: #{$padding}px;}
-    .pb#{$padding} {padding-bottom: #{$padding}px;}
-    .pt#{$padding} {padding-top: #{$padding}px;}
+  .p#{$padding} {
+    padding: #{$padding}px;
+  }
+  .ptb#{$padding} {
+    padding: #{$padding}px 0;
+  }
+  .pr#{$padding} {
+    padding-right: #{$padding}px;
+  }
+  .pl#{$padding} {
+    padding-left: #{$padding}px;
+  }
+  .pb#{$padding} {
+    padding-bottom: #{$padding}px;
+  }
+  .pt#{$padding} {
+    padding-top: #{$padding}px;
+  }
 
-    @include responsive($sm) {
-        .sm-pr#{$padding} {padding-right: #{$padding}px;}
-        .sm-pl#{$padding} {padding-left: #{$padding}px;}
-        .sm-pb#{$padding} {padding-bottom: #{$padding}px;}
+  @include responsive($sm) {
+    .sm-pr#{$padding} {
+      padding-right: #{$padding}px;
     }
+    .sm-pl#{$padding} {
+      padding-left: #{$padding}px;
+    }
+    .sm-pb#{$padding} {
+      padding-bottom: #{$padding}px;
+    }
+  }
 }
 
 @each $weight in (1, 2, 3, 5, 6, 7, 9) {
-    .w#{$weight} { font-weight: $weight * 100; }
+  .w#{$weight} {
+    font-weight: $weight * 100;
+  }
 }
 
 @each $width in (300, 400, 420, 500, 690, 740) {
-    .w-#{$width} { width: #{$width}px; }
-    .max-w-#{$width} { max-width: #{$width}px; }
-    .min-w-#{$width} { max-width: #{$width}px; }
+  .w-#{$width} {
+    width: #{$width}px;
+  }
+  .max-w-#{$width} {
+    max-width: #{$width}px;
+  }
+  .min-w-#{$width} {
+    max-width: #{$width}px;
+  }
 
-    @include responsive($sm) {
-        .sm-max-w-#{$width} { max-width: #{$width}px; }
+  @include responsive($sm) {
+    .sm-max-w-#{$width} {
+      max-width: #{$width}px;
     }
+  }
 }
 @each $height in (50, 90, 190) {
-    .h-#{$height} { height: #{$height}px; }
-    .max-h-#{$height} { max-height: #{$height}px; }
-    .min-h-#{$height} { min-height: #{$height}px; }
+  .h-#{$height} {
+    height: #{$height}px;
+  }
+  .max-h-#{$height} {
+    max-height: #{$height}px;
+  }
+  .min-h-#{$height} {
+    min-height: #{$height}px;
+  }
 }
 
-.tal { text-align: left; }
-.tac { text-align: center; }
-.tar { text-align: right; }
+.tal {
+  text-align: left;
+}
+.tac {
+  text-align: center;
+}
+.tar {
+  text-align: right;
+}
 
-.db {display: block;}
-.full-width {width: 100%;}
-.dt{display: table;width: 100%;height: 100%;}
-.dtt{display: table-cell;vertical-align: top;height: 100%;}
-.dtc{display: table-cell;vertical-align: middle;height: 100%;}
-.dtb{display: table-cell;vertical-align: bottom;height: 100%;}
-.mauto {margin: 0 auto;}
-.ttuc { text-transform: uppercase; }
-.relative {position: relative;}
-.left { float: left; }
-.right { float: right; }
+.db {
+  display: block;
+}
+.full-width {
+  width: 100%;
+}
+.dt {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.dtt {
+  display: table-cell;
+  vertical-align: top;
+  height: 100%;
+}
+.dtc {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+.dtb {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 100%;
+}
+.mauto {
+  margin: 0 auto;
+}
+.ttuc {
+  text-transform: uppercase;
+}
+.relative {
+  position: relative;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 
-.vat {vertical-align: top;}
-.vam {vertical-align: middle;}
-.vab {vertical-align: bottom;}
-.z1 {z-index: 1;}
-.uppercase {text-transform: uppercase;}
+.vat {
+  vertical-align: top;
+}
+.vam {
+  vertical-align: middle;
+}
+.vab {
+  vertical-align: bottom;
+}
+.z1 {
+  z-index: 1;
+}
+.uppercase {
+  text-transform: uppercase;
+}
 
 .clearfix::after {
-    content: " ";
-    display: table;
-    clear: both;
+  content: " ";
+  display: table;
+  clear: both;
 }
 
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none;
+  }
+}
 
 /* Headings */
 
 .heading {
-    font-size: 24px;
-    line-height: 33px;
-    font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 600;
 }
 
 .copy {
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: normal;
 }
 
 /* Buttons */
 .btn {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
 
-    // min-width: 180px;
+  // min-width: 180px;
 
-    vertical-align: middle;
-    padding: 12px 28px;
+  vertical-align: middle;
+  padding: 12px 28px;
 
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
 
-    color: $white;
-    background-color: #D20808;
+  color: $white;
+  background-color: #d20808;
 
-    border-radius: 20px;
+  border-radius: 20px;
 
-    @include transitionEffect();
+  @include transitionEffect();
 
-    &:hover {
-        opacity: 0.7;
-    }
-
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .heading,
 .copy,
 .btn {
-    font-family: $font1;
+  font-family: $font1;
 }
-
 
 /* Sticky Footer */
 
 .body-content {
-    position: relative;
-    min-height: calc(100vh - 69px);
+  position: relative;
+  min-height: calc(100vh - 69px);
 }
-
 
 /* Container */
 .container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    @include responsive($sm) {
-        width: 95%;
-    }
-    @include responsive($lg) {
-        width: 95%;
-    }
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  @include responsive($sm) {
+    width: 95%;
+  }
+  @include responsive($lg) {
+    width: 95%;
+  }
 }
-
 
 /* Notifications */
 
 .notification {
-    position: relative;
-    display: none;
-    width: 100%;
-    padding: 20px;
-    color: $white;
-    z-index: 3;
-    text-align: center;;
-    &.success {background-color: green;}
-    &.error {background-color: 'red';}
+  position: relative;
+  display: none;
+  width: 100%;
+  padding: 20px;
+  color: $white;
+  z-index: 3;
+  text-align: center;
+  &.success {
+    background-color: green;
+  }
+  &.error {
+    background-color: "red";
+  }
 }
 
 /* fade in settings in script.js */
 .dark-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: rgba(0,0,0,0.4);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
 }
-
 
 /* Header */
 .header {
-    .header-top {
-        margin-top: 20px;
-        text-align: center;
-        @media (min-width: 768px) {
-            text-align: left;
-        }
+  .header-top {
+    margin-top: 20px;
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  .header-middle {
+    display: none;
+    background-color: #d20808;
+    font-size: 14px;
+    @include addBoxShadow();
+    @media (min-width: 998px) {
+      display: block;
+    }
+    a {
+      color: $white;
+      padding: 10px;
+      font-weight: bold;
+
+      @include transitionEffect();
+      &:hover {
+      }
     }
 
-    .header-middle {
-        display: none;
-        background-color: #D20808;
-        font-size: 14px;
-        @include addBoxShadow();
-        @media (min-width: 768px) {
+    .nav {
+      .right-arrow {
+        &:after {
+          content: $carretRight;
+          position: absolute;
+          top: 0;
+          right: 15px;
+          line-height: 49px;
+          color: $white;
+          font-family: FontAwesome;
+          font-weight: normal;
+          font-style: normal;
+          text-decoration: none;
+        }
+      }
+      > li {
+        &:nth-child(2),
+        &:nth-child(3) {
+          &:after {
+            content: $bottomArrow;
+            position: absolute;
+            top: 0;
+            right: 15px;
+            line-height: 49px;
+            color: $white;
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    ul {
+      float: left;
+      margin: 0;
+      padding: 0;
+      color: $white;
+      z-index: 6;
+      position: relative;
+      > li {
+        width: 25%;
+        &:not(:first-child) {
+          // padding-left: 40px;
+          &:before {
+            content: "";
             display: block;
+            background: $white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+          }
+        }
+      }
+
+      li {
+        float: left;
+        position: relative;
+        width: 170px;
+        list-style: none;
+
+        @media (min-width: 998px) {
+          width: 180px;
+        }
+        @media (min-width: 1260px) {
+          width: 230px;
+        }
+
+        &:hover {
+          color: $white;
+          > ul {
+            visibility: visible;
+            opacity: 1;
+          }
+          li {
+            background: #d20808;
+            margin-left: 0;
+            &:before {
+              content: "";
+              display: none;
+            }
+            &:hover {
+              background: $white;
+              li {
+                background: #d20808;
+                &:hover {
+                  background: $white;
+                  a {
+                    color: #d20808;
+                  }
+                }
+                a {
+                  color: $white;
+                }
+              }
+
+              a {
+                color: #d20808;
+              }
+            }
+            a {
+              color: $white;
+            }
+          }
+          // a {color: $white;}
         }
         a {
-            color: $white;
-            padding: 10px;
-            font-weight: bold;
-
-            @include transitionEffect();
-            &:hover {
-            
-            }
-
+          color: $white;
         }
+      }
 
+      ul {
+        position: absolute;
+        left: 0;
+        top: 102%;
+        visibility: hidden;
+        opacity: 0;
+        @include addBoxShadow();
 
-
-
-        .nav {
-            .right-arrow {
-                &:after {
-                    content: $carretRight;
-                    position: absolute;
-                    top: 0;
-                    right: 15px;
-                    line-height: 49px;
-                    color: $white;
-                    font-family: FontAwesome;
-                    font-weight: normal;
-                    font-style: normal;
-                    text-decoration: none;
-                }
-            }
-            > li {
-                &:nth-child(2), &:nth-child(3) {
-                    &:after {
-                        content: $bottomArrow;
-                        position: absolute;
-                        top: 0;
-                        right: 15px;
-                        line-height: 49px;
-                        color: $white;
-                        font-family: FontAwesome;
-                        font-weight: normal;
-                        font-style: normal;
-                        text-decoration: none;
-                    }
-                }
-            }
-        }
-       
         ul {
-			float: left;
-            margin: 0;
-            padding: 0;
-            color: $white;
-            z-index: 6;
-            position: relative;
-            > li {
-                width: 25%;
-                &:not(:first-child) {
-                    // padding-left: 40px;
-                    &:before {
-                        content: "";
-                        display: block;
-                        background: $white;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        bottom: 0;
-                        width: 1px;
-                        height: 100%;
-                    }
-                }
-
-            }
-
-            li {
-                float: left;
-                position: relative;
-                width: 230px;
-                list-style: none;
-                &:hover {
-
-                    color: $white;
-                    > ul {
-                        visibility: visible;
-			            opacity: 1;
-                    }
-                    li {
-                        background: #D20808;
-                        margin-left: 0;
-                        &:before {
-                            content: "";
-                            display: none;
-                        }
-                        &:hover {
-                            background: $white;
-                            li {
-                                background: #D20808;
-                                &:hover {
-                                    background: $white;
-                                    a {
-                                        color: #D20808;
-                                    }
-                                }
-                                a {color: $white;}
-                            }
-
-                            a {
-                                color: #D20808;
-                            }
-                        }
-                        a {color: $white;}
-                    }
-                    // a {color: $white;}
-                }
-                a {color: $white;}
-            }
-
-            ul {
-                position: absolute;
-                left: 0;
-                top: 102%;
-                visibility: hidden;
-                opacity: 0;
-                @include addBoxShadow();
-
-                ul {
-                    left: 100%;
-                    top: 0;
-                    @include addBoxShadow();
-
-                }
-            }
-
-            
-
-		}
-
-		a {
-			display: block;
-			text-decoration: none;
-			padding: 15px;
-			color: $white;
-		}
-
-
-
+          left: 100%;
+          top: 0;
+          @include addBoxShadow();
+        }
+      }
     }
 
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 15px;
+      color: $white;
+    }
+  }
 }
 
 .select-boxes {
-    padding: 8px 15px;
-    min-width: 250px;
-    max-width: 100%;
+  padding: 8px 15px;
+  min-width: 100%;
+  max-width: 100%;
+  @media (min-width: 768px) {
+    min-width: 200px;
+  }
 }
 
 /* Footer */
 .footer {
-    background-color: #5b5656;
-    color: $white;
-    text-align: center;
-    padding: 20px 0;
+  background-color: #5b5656;
+  color: $white;
+  text-align: center;
+  padding: 20px 0;
 }
-
-
