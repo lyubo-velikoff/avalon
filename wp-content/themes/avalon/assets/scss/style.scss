@@ -195,7 +195,7 @@ a:link {
   .photos {
     margin-top: 20px;
     .slideshow-slider {
-      height: 470px;
+      // height: 470px;
       background-color: #000000;
 
       img {
@@ -220,6 +220,8 @@ a:link {
         width: 100px;
         height: 126px;
 
+        transform: scale(0.5);
+
         border: 0;
         background: transparent;
 
@@ -231,15 +233,32 @@ a:link {
           left: 0;
           background-image: url(./images/left-arrow.png);
         }
+
+        @media (min-width: 768px) {
+          width: 100px;
+          height: 126px;
+        }
       }
     }
 
     .slideshow-nav {
       margin-top: 1px;
+      margin-bottom: 20px;
       max-height: 115px;
       background-color: #000000;
+
+      .slick-track {
+        display: flex;
+      }
+      .slick-track .slick-slide {
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+      }
+
       .slide {
-        height: 115px;
+        // height: 115px;
         padding: 1px;
       }
       img {
