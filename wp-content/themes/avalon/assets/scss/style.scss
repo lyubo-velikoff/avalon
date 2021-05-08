@@ -197,7 +197,8 @@ a:link {
     .slideshow-slider {
       // height: 470px;
       background-color: #000000;
-      max-height: 470px;
+      display: block;
+      height: auto;
 
       img {
         max-width: 100%;
