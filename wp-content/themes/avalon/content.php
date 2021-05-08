@@ -178,7 +178,7 @@ $phone = get_field('phone');
             <div class="subheading">Телефон за връзка</div>
             <a href="tel:<?php echo str_replace(" ", "", $phone) ?>" class="phone"><?php echo $phone ?></a>
             <div class="mt20 tac">
-              <a href="mailto:" class="btn white">Изпрати имейл</a>
+              <a href="mailto:avalon_ds@abv.bg" class="btn white">Изпрати имейл</a>
             </div>
             <hr />
           </div>
