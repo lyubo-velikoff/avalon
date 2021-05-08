@@ -14030,6 +14030,10 @@ avalon.setSlideshow = function () {
     adaptiveHeight: true,
   });
 
+  setTimeout(function () {
+    $(".slideshow-slider").slick("reinit");
+  }, 500);
+
   $(".slideshow-nav").slick({
     slidesToShow: 4,
     slidesToScroll: 1,
