@@ -1876,7 +1876,9 @@ body {
 a {
   text-decoration: none; }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center; }
 
 h2 {
@@ -1893,7 +1895,8 @@ img {
   position: relative;
   color: #505050; }
 
-.hcontacts a:visited, a:link {
+.hcontacts a:visited,
+a:link {
   color: #505050; }
 
 .header .header-top {
@@ -1925,7 +1928,7 @@ img {
         -o-transition-timing-function: linear; }
         .categories ul li a:hover {
           text-decoration: underline;
-          color: #D20808; }
+          color: #d20808; }
   .categories .cat-item {
     margin-top: 2px; }
   .categories .children .children {
@@ -1968,7 +1971,7 @@ img {
       -moz-transition-timing-function: linear;
       -o-transition-timing-function: linear; }
       .properties .property a:hover {
-        color: #D20808; }
+        color: #d20808; }
     .properties .property img {
       width: 100%;
       max-width: 100%;
@@ -1983,6 +1986,8 @@ img {
       margin-top: 10px; }
       .properties .property .description div {
         margin-top: 1px; }
+    .properties .property .property-body {
+      padding: 10px; }
   @media (min-width: 768px) {
     .properties {
       float: left;
@@ -1991,7 +1996,10 @@ img {
         width: auto;
         max-width: 100%;
         height: 100%;
-        max-height: 189px; } }
+        max-height: 189px; }
+      .properties .property .property-body {
+        margin-left: 20px;
+        padding: 0px; } }
 
 .property-single .photos {
   margin-top: 20px; }
