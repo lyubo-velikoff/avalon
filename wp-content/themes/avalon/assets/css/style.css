@@ -603,16 +603,16 @@
   color: #d20808 !important; }
 
 .red1 {
-  color: #b91c1c !important; }
+  color: #d32813 !important; }
 
 .red1-bg {
-  background-color: #b91c1c !important; }
+  background-color: #d32813 !important; }
 
 .fill-red1 {
-  fill: #b91c1c !important; }
+  fill: #d32813 !important; }
 
 .red1-hover:hover {
-  color: #b91c1c !important; }
+  color: #d32813 !important; }
 
 .mt0 {
   margin-top: 0px; }
@@ -1747,7 +1747,7 @@
   text-decoration: none;
   text-align: center;
   color: #ffffff;
-  background-color: #d20808;
+  background-color: #d32813;
   border-radius: 20px;
   transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
@@ -1817,10 +1817,10 @@
 
 .header .header-middle {
   display: none;
-  background-color: #d20808;
+  background-color: #d32813;
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-  @media (min-width: 998px) {
+  @media (min-width: 768px) {
     .header .header-middle {
       display: block; } }
   .header .header-middle a {
@@ -1879,8 +1879,11 @@
     .header .header-middle ul li {
       float: left;
       position: relative;
-      width: 170px;
+      width: 140px;
       list-style: none; }
+      @media (min-width: 820px) {
+        .header .header-middle ul li {
+          width: 150px; } }
       @media (min-width: 998px) {
         .header .header-middle ul li {
           width: 180px; } }
@@ -1945,6 +1948,66 @@
   color: #ffffff;
   text-align: center;
   padding: 20px 0; }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: #d32813;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align: center; }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s; }
+    .sidenav a:hover {
+      color: #f1f1f1; }
+  .sidenav .sidenav-links a {
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #000000), var(--tw-ring-shadow, 0 0 #000000), var(--tw-shadow);
+    color: #fff; }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #ffffff; }
+
+.sidenav-icon {
+  font-size: 30px;
+  text-align: right;
+  margin-right: 10px; }
+  .sidenav-icon .tel {
+    display: none;
+    font-size: 11px;
+    line-height: 13px; }
+  @media (min-width: 360px) {
+    .sidenav-icon {
+      font-size: 40px; }
+      .sidenav-icon .tel {
+        display: inline-block; } }
+
+@media screen and (max-width: 767px) {
+  .logo {
+    text-align: left; }
+  .telephones {
+    margin-top: 10px; } }
+
+@media screen and (min-width: 768px) {
+  .hide-above-tablet {
+    display: none; }
+  .sidenav-icon {
+    display: none; } }
 
 .search {
   padding: 20px;
@@ -2099,7 +2162,7 @@ a:link {
 .categories {
   display: none;
   float: left;
-  width: 17%;
+  width: 22%;
   padding: 0 20px;
   background-color: #ffffff;
   font-size: 14px;
@@ -2140,6 +2203,9 @@ a:link {
   @media (min-width: 998px) {
     .categories {
       display: block; } }
+  @media (min-width: 1200px) {
+    .categories {
+      width: 17%; } }
 
 .property-container {
   padding: 10px; }
@@ -2187,7 +2253,7 @@ a:link {
   .properties {
     float: left;
     margin-left: 1%;
-    width: 80%; }
+    width: 77%; }
     .properties .property img {
       width: auto;
       max-width: 100%;
@@ -2196,6 +2262,10 @@ a:link {
     .properties .property .property-body {
       margin-left: 20px;
       padding: 0px; } }
+
+@media (min-width: 1200px) {
+  .properties {
+    width: 80%; } }
 
 .property-single {
   position: relative;
@@ -2265,7 +2335,7 @@ a:link {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
-    color: #b91c1c;
+    color: #d32813;
     text-decoration: underline; }
   .property-single .details {
     font-size: 14px;
@@ -2317,5 +2387,8 @@ a:link {
   @media (min-width: 992px) {
     .about-info {
       padding: 20px 100px; } }
+
+.telephones {
+  transition: 0.3s; }
 
 /*# sourceMappingURL=style.css.map */
