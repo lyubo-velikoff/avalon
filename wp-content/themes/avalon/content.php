@@ -49,7 +49,7 @@ $phone = get_field('phone');
 
     <div class="photos">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-7 relative">
 
           <div class="slideshow-slider">
             <?php foreach ($photos as $photo) : ?>
