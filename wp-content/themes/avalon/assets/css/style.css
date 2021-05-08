@@ -2008,7 +2008,8 @@ a:link {
   margin-top: 20px; }
   .property-single .photos .slideshow-slider {
     background-color: #000000;
-    max-height: 470px; }
+    display: block;
+    height: auto; }
     .property-single .photos .slideshow-slider img {
       max-width: 100%;
       margin: 0 auto;
