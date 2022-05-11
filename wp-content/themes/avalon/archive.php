@@ -48,10 +48,10 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
 
     <div class="properties">
       <div class="p10">
-        <?php if (!empty($topOffers)) : ?>
-          <?php foreach ($topOffers as $post) : ?>
-            <?php setup_postdata($post); ?>
-            <div class="col-lg-6 property-container">
+        <div class="property-container">
+          <?php if (!empty($topOffers)) : ?>
+            <?php foreach ($topOffers as $post) : ?>
+              <?php setup_postdata($post); ?>
               <div class="property">
                 <div class="row">
                   <div class="col-sm-6">
@@ -130,12 +130,10 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
                   </div>
                 </div>
               </div>
-            </div>
-
-          <?php endforeach;
-          wp_reset_postdata(); ?>
-        <?php endif; ?>
-
+            <?php endforeach;
+            wp_reset_postdata(); ?>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
 

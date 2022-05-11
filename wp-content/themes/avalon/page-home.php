@@ -74,10 +74,7 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
 
 
     <div class="properties">
-
-
       <div class="p10">
-
         <div class="search">
           <form action="" method="POST">
             <div class="row">
@@ -105,100 +102,100 @@ $neighborhoodChoices = array_key_exists('choices', $props) ? $props['choices'] :
             </div>
           </form>
         </div>
-      </div>
 
+        <div class="property-container">
+          <?php if (!empty($topOffers)) : ?>
+            <?php foreach ($topOffers as $post) : ?>
+              <?php setup_postdata($post); ?>
+              <div class="property">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title() ?>"></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="property-body">
+                      <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                      <div class="description">
 
-      <?php if (!empty($topOffers)) : ?>
-        <?php foreach ($topOffers as $post) : ?>
-          <?php setup_postdata($post); ?>
-          <div class="col-lg-6 property-container">
-            <div class="property">
-              <div class="row">
-                <div class="col-sm-6">
-                  <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title() ?>"></a>
-                </div>
-                <div class="col-sm-6">
-                  <div class="property-body">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    <div class="description">
+                        <?php if (get_field('price')) : ?>
+                          <?php
+                          $currency = get_field_object('currency');
+                          $value = $currency['value'];
+                          $label = $currency['choices'][$value];
 
-                      <?php if (get_field('price')) : ?>
-                        <?php
-                        $currency = get_field_object('currency');
-                        $value = $currency['value'];
-                        $label = $currency['choices'][$value];
+                          $field = get_field_object('currency');
+                          $value = $field['value'];
+                          $currency = $field['choices'][$value];
+                          ?>
+                          <div class="price"><b>Цена:</b> <?php echo number_format(get_field('price')) . $currency ?></div>
 
-                        $field = get_field_object('currency');
-                        $value = $field['value'];
-                        $currency = $field['choices'][$value];
-                        ?>
-                        <div class="price"><b>Цена:</b> <?php echo number_format(get_field('price')) . $currency ?></div>
+                        <?php endif; ?>
+                        <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
+                          <?php
+                          $neighborhood = get_field_object('neighborhood');
+                          $value = $neighborhood['value'];
+                          $neighborhoodLabel = $neighborhood['choices'][$value];
 
-                      <?php endif; ?>
-                      <?php if (get_field('neighborhood') && get_field('in_town')) : ?>
-                        <?php
-                        $neighborhood = get_field_object('neighborhood');
-                        $value = $neighborhood['value'];
-                        $neighborhoodLabel = $neighborhood['choices'][$value];
+                          $city = get_field_object('in_town');
+                          $value = $city['value'];
+                          $cityLabel = $city['choices'][$value];
+                          ?>
+                          <!-- <div class="neighborhood"><b>Местоположение:</b> <?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div> -->
+                        <?php endif; ?>
 
-                        $city = get_field_object('in_town');
-                        $value = $city['value'];
-                        $cityLabel = $city['choices'][$value];
-                        ?>
-                        <!-- <div class="neighborhood"><b>Местоположение:</b> <?php echo $cityLabel . ', ' . $neighborhoodLabel; ?></div> -->
-                      <?php endif; ?>
+                        <?php if (get_field('area')) : ?>
+                          <div class="area"><b>Квадратура:</b> <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
+                        <?php endif; ?>
 
-                      <?php if (get_field('area')) : ?>
-                        <div class="area"><b>Квадратура:</b> <?php the_field('area') ?> <?php echo 'кв.м.'; ?></div>
-                      <?php endif; ?>
+                        <?php if (get_field('yard')) : ?>
+                          <div class="yard"><b>Земя:</b> <?php the_field('yard') ?> <?php echo 'кв.м.'; ?></div>
+                        <?php endif; ?>
 
-                      <?php if (get_field('yard')) : ?>
-                        <div class="yard"><b>Земя:</b> <?php the_field('yard') ?> <?php echo 'кв.м.'; ?></div>
-                      <?php endif; ?>
+                        <?php if (get_field('floor') && get_field('floor_count')) : ?>
+                          <?php
+                          $floor = get_field_object('floor');
+                          $value = $floor['value'];
+                          $floorLabel = $floor['choices'][$value];
 
-                      <?php if (get_field('floor') && get_field('floor_count')) : ?>
-                        <?php
-                        $floor = get_field_object('floor');
-                        $value = $floor['value'];
-                        $floorLabel = $floor['choices'][$value];
+                          $floorCount = get_field_object('floor_count');
+                          $value = $floorCount['value'];
+                          $floorCountLabel = $floorCount['choices'][$value];
 
-                        $floorCount = get_field_object('floor_count');
-                        $value = $floorCount['value'];
-                        $floorCountLabel = $floorCount['choices'][$value];
+                          ?>
+                          <div class="floor"><b>Етаж:</b> <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
+                        <?php endif; ?>
 
-                        ?>
-                        <div class="floor"><b>Етаж:</b> <?php echo $floorLabel . '  от ' . $floorCountLabel; ?></div>
-                      <?php endif; ?>
+                        <?php if (get_field('construction_type')) : ?>
+                          <?php
+                          $constructionType = get_field_object('construction_type');
+                          $value = $constructionType['value'];
+                          $label = $constructionType['choices'][$value];
+                          ?>
+                          <div class="construction-type"><b>Вид строителство:</b> <?php echo $label; ?></div>
+                        <?php endif; ?>
 
-                      <?php if (get_field('construction_type')) : ?>
-                        <?php
-                        $constructionType = get_field_object('construction_type');
-                        $value = $constructionType['value'];
-                        $label = $constructionType['choices'][$value];
-                        ?>
-                        <div class="construction-type"><b>Вид строителство:</b> <?php echo $label; ?></div>
-                      <?php endif; ?>
+                        <?php if (get_field('furnished')) : ?>
+                          <?php
+                          $furnished = get_field_object('furnished');
+                          $value = $furnished['value'];
+                          $label = $furnished['choices'][$value];
+                          ?>
+                          <div class="furnished"><b>Обзавеждане:</b> <?php echo $label; ?></div>
+                        <?php endif; ?>
 
-                      <?php if (get_field('furnished')) : ?>
-                        <?php
-                        $furnished = get_field_object('furnished');
-                        $value = $furnished['value'];
-                        $label = $furnished['choices'][$value];
-                        ?>
-                        <div class="furnished"><b>Обзавеждане:</b> <?php echo $label; ?></div>
-                      <?php endif; ?>
+                      </div>
 
                     </div>
-
                   </div>
+
                 </div>
               </div>
-            </div>
-          </div>
 
-        <?php endforeach;
-        wp_reset_postdata(); ?>
-      <?php endif; ?>
+            <?php endforeach;
+            wp_reset_postdata(); ?>
+          <?php endif; ?>
+        </div>
+      </div>
 
     </div>
   </div>
