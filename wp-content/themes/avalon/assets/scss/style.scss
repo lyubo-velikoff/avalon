@@ -120,12 +120,15 @@ a:link {
   }
 }
 
-.property-container {
-  padding: 10px;
-}
-
 .properties {
   @extend .clearfix;
+
+  .property-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+  }
+
   .property {
     background-color: $white;
     padding: 10px;
@@ -188,6 +191,11 @@ a:link {
     float: left;
     margin-left: 1%;
     width: 77%;
+
+    .property-container {
+      grid-auto-rows: 1fr;
+    }
+
     .property {
       img {
         width: auto;

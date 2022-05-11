@@ -8,14 +8,11 @@
   },
   "devDependencies": {
     "blanket": "^1.2.3",
-    "browser-sync": "*",
-    "del": "*",
     "gulp": "^3.9.1",
     "gulp-clean-css": "*",
     "gulp-concat": "*",
     "gulp-concat-css": "*",
     "gulp-connect-php": "0.0.8",
-    "gulp-imagemin": "*",
     "gulp-notify": "*",
     "gulp-prettyerror": "*",
     "gulp-qunit": "^1.5.0",
@@ -24,10 +21,6 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
-    "imagemin-gifsicle": "*",
-    "imagemin-optipng": "*",
-    "imagemin-svgo": "*",
-    "ngrok": "*",
     "psi": "*",
     "qunit-reporter-junit": "^1.1.0",
     "qunit-reporter-lcov": "^1.0.2",
@@ -42,5 +35,8 @@
   "keywords": [
     "workflow"
   ],
+  "overrides": {
+    "graceful-fs": "^4.2.9"
+  },
   "author": "lyubo"
 }
